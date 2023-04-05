@@ -1,0 +1,33 @@
+<div id="blue-screen">
+</div>
+<div id="white-screen">
+<section id="formulary">
+<span id="login-title"> INICIAR SESIÓN </span>
+<label class="form-label">Correo Electrónico :</label>
+<div class="mb-3">
+  <input type="email" class="form-control" id="FormControlInput1" placeholder="info@provistechnologies.com">
+  <img class="icons" src="assets/images/mail_iconmail-icon.png">
+</div>
+
+<label class="form-label">Contraseña :</label>
+<div class="mb-3">
+  <input type="password" class="form-control" id="FormControlInput1" placeholder="Ingrese su contraseña">
+  <img class="icons" src="assets/images/iconpass.png">
+</div>
+<span id="password-question"> Olvidaste tu contraseña? </span>
+
+<button class="btn btn-primary" type="button" id="login-btn" routerLink="/results">Iniciar Sesión</button>
+
+<div style="width: 100%; height: 20px; border-bottom: 1.5px solid #C2C2C2; text-align: center; color: #C2C2C2; margin-top: 30px">
+  <span style="font-size: 14.14px;  background-color: #FFFFFF; padding: 30px; margin-top: 5px;">
+    OR
+  </span>
+</div>
+
+<button class="btn btn-primary" type="button" id="singup-btn">
+  <a href="" id="singup-link" routerLink="/register"> Registrarse </a>
+</button>
+</section>
+</div>
+
+<router-outlet></router-outlet>
