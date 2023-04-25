@@ -1,0 +1,29 @@
+.division{
+  margin-left: 350px;
+  margin-top: 40px;
+  width: 1480px;
+  height:100%;
+}
+span {
+  padding-left: 70px;
+}
+table {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  border-spacing: 0 5px; /* add spacing of 10px between rows */
+}
+table th {
+  background-color: #3E81E6 !important;
+  color: black;
+  text-align: center;
+}
+table td {
+  background-color: #F5F5F5;
+  color: black;
+  text-align: center;
+}
+.center-button {
+  text-align: center;
+  margin-top: 20px;
+}

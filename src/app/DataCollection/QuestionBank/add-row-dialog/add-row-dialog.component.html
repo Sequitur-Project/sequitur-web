@@ -1,0 +1,19 @@
+<h2 mat-dialog-title class="dialog-title">Añadir Intent</h2>
+<div class="dialog-content">
+  <span>Se conoce a Intent como lo que permite iniciar una actividad en una app mediante la descripción de una acción simple que se desea realizar. </span>
+  <span>En este caso, el Intent definira las respuestas que dara el bot hacia los mensajes de los estudiantes, es decir que se puede ir entrenando las respuestas del bot con supuestos mensajes que el estudiante puede enviar</span><br>
+  <span>A Continuacion, empezaremos poniendole un nombre al Intent:</span>
+  <form [formGroup]="form">
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Nombre" formControlName="name">
+    </mat-form-field>
+
+  </form>
+</div>
+<div class="dialog-actions">
+  <button mat-button class="cancel-button" (click)="onNoClick()">Cancelar</button>
+  <button mat-button class="add-button" (click)="onSubmit()" cdkFocusInitial>Guardar</button>
+</div>
+
+
+

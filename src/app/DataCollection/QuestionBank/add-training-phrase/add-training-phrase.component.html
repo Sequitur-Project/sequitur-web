@@ -1,0 +1,16 @@
+<h1 mat-dialog-title class="dialog-title">Entrenar Frase</h1>
+<div mat-dialog-content>
+  <span>Una frase de entrenamiento es aquel texto que el chatbot analizara como un mensaje que enviara el estudiante, y revisara los intents que tiene almacenados para encontrar una respuesta.</span>
+  <span> De este modo, el bot sabra que responder ante ciertas circunstacias dentro de la conversacion con el estudiante.</span><br>
+  <span> A continuacion, empezaremos a escribir frases para entrenar el intent:</span>
+  <mat-form-field class="form-field">
+    <mat-label>Frase</mat-label>
+    <input matInput [(ngModel)]="trainingPhrase.text" placeholder="Frase">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button class="cancel-button" (click)="dialogRef.close()">Cancelar</button>
+  <button mat-button class="save-button" color="primary" (click)="onSave()">Guardar</button>
+</div>
+
+
