@@ -1,11 +1,13 @@
 
 <nav class="main-menu">
-    <div id="profile">
-      <i class="fa fa-user-circle fa-5x" id="icons"></i>
-      <span id="user-name"> Anna George </span>
-      <span id="user-tag"> Encargado </span>
-      <hr id="divide-line">
+  <div id="profile">
+    <i class="fa fa-user-circle fa-5x" id="icons"></i>
+    <div id="user-info">
+      <span id="user-name">{{loggedInPsychologist?.firstName}} {{loggedInPsychologist?.lastName}}</span><br>
+      <span id="user-tag">Psicologo</span>
     </div>
+  </div>
+  <hr id="divide-line">
             <ul>
                 <li>
                     <a routerLink="/results">
@@ -35,7 +37,7 @@
 
                 </li>
                 <li class="has-subnav">
-                    <a href="#">
+                    <a routerLink="/questionBank">
                        <i class="fa fa-list-alt fa-2x"></i>
                         <span class="nav-text">
                             Banco de Preguntas
@@ -44,15 +46,15 @@
 
                 </li>
                 <li>
-                    <a href="#">
+                    <a routerLink="/subscriptions">
                         <i class="fa fa-credit-card-alt fa-2x"></i>
                         <span class="nav-text">
-                            Suscripcion
+                            Subscripcion
                         </span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a routerLink="/support">
                         <i class="fa fa-cog fa-2x"></i>
                         <span class="nav-text">
                            Configuracion

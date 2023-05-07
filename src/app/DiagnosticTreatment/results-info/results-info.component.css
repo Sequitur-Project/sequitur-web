@@ -1,0 +1,64 @@
+.personal-info {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #16B268;
+}
+
+.student-info {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.resultados{
+
+  width: 50%;
+  height: 60%;
+  margin-right: 20px;
+}
+
+.student-photo {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.student-details {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+label {
+  font-weight: lighter;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.student-section {
+
+  justify-content: flex-start;
+}
+
+.results-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-top: -405px;
+  padding-left: 100px;
+}
+
+.accordion-button{
+  margin-bottom: -20px;
+}
+
+
+
