@@ -1,0 +1,81 @@
+#division{
+  margin-left: 350px;
+  margin-top: 0px;
+  width: 1480px;
+  height:100%;
+}
+#title{
+  color: #16B268;
+  font-weight: 500;
+  font-size: 22px;
+  /* Suscribirse */
+position: absolute;
+width: 250px;
+height: 30px;
+left: 450px;
+top: 44px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height */
+letter-spacing: 0.01em;
+
+/* Primary crypto */
+color: #16B268;
+
+opacity: 0.8;
+
+}
+#p1{
+/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. */
+
+position: absolute;
+width: 386px;
+height: 104px;
+left: 450px;
+top: 109px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0.01em;
+
+color: #000000;
+
+
+}
+#image{
+  /* sai2_qhAiHIbhka 1 */
+position: absolute;
+width: 508px;
+height: 441px;
+left: 1093px;
+top: 18px;
+
+}
+.card{
+  top: 420px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.card-body{
+  background-color: #EEEEEE;
+}
+#button{
+  left: 500px;
+  top: 1100px;
+  margin-top: 500px;
+  margin-left: 550px;
+  background-color: #147446;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  padding: 20px;
+  width: 330px;
+}

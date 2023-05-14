@@ -1,0 +1,21 @@
+<p>subscription-info works!</p>
+<div id="division">
+  <span id="title">Subscribirse</span>
+  <p id="p1">En este apartado encontrarás información sobre el concepto de la subscripción que manejamos para nuestra aplicación. Sequitur es una aplicación implementada por alumnos universitarios de la Universidad Peruana de Ciencias Aplicadas. De este modo para que los estudiantes y psicólogos tengan acceso a nuestra plataforma, debes registrar a la universidad con la subscripción que se presenta a continuación</p>
+  <img id="image" src="/assets/images/STUDENTS.png" alt="">
+
+  <div class="card text-center">
+    <div class="card-body" *ngIf="subscription">
+      <img src="assets/images/sub.png" alt="">
+      <h2 class="card-title">{{subscription.title}}</h2>
+      <p class="card-text">{{subscription.description}}</p>
+      <p class="card-text">Precio: {{subscription.price}}$</p>
+    </div>
+  </div>
+
+  <button id="button" (click)="openPaymentDialog()" [disabled]="subscriptionButtonDisabled">{{subscriptionButtonText}}</button>
+</div>
+
+
+
+<app-sidebar></app-sidebar>

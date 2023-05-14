@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+.dialog-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.dialog-content {
+  margin-bottom: 20px;
+  color: #333;
+}
+p{
+  color: #333;
+}
+
+.dialog-content p {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.form-field {
+  width: 100%;
+  color: #333;
+}
+
+.cancel-button {
+  margin-right: 10px;
+  color: #333;
+}
+
+.save-button {
+  margin-left: auto;
+  display: block;
+  color: #ffffff;
+  background-color: #147446;
+}
+input {
+  width: 80%;
+}
