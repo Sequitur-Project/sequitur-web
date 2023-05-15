@@ -79,4 +79,10 @@ top: 18px;
   padding: 20px;
   width: 330px;
 }
+.card-text {
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
+
 

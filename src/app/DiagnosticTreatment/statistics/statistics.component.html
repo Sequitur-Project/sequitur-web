@@ -1,0 +1,36 @@
+<body>
+  <app-sidebar></app-sidebar>
+  <div *ngIf="universityDepressionIndicatorSet" class="statistics">
+    <div class="chart">
+      <h2>Depression Percentage</h2>
+      <div class="donut-chart">
+        <div class="donut-chart-circle2"
+          [style.strokeDasharray.%]="universityDepressionIndicatorSet.depressionPercentage"
+          [style.stroke]="'#1f77b4'"></div>
+        <div class="donut-chart-center">{{universityDepressionIndicatorSet.depressionPercentage}}%</div>
+      </div>
+    </div>
+    <div class="chart">
+      <h2>Non-Depression Percentage</h2>
+      <div class="donut-chart">
+        <div class="donut-chart-circle"
+          [style.strokeDasharray.%]="universityDepressionIndicatorSet.noDepressionPercentage"
+          [style.stroke]="'#FFC300'"></div>
+        <div class="donut-chart-center">{{universityDepressionIndicatorSet.noDepressionPercentage}}%</div>
+      </div>
+    </div>
+
+    <canvas id="myChart" #myChart ></canvas>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+</body>

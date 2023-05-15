@@ -7,5 +7,6 @@ export class Psychologist {
   lastName: String;
   password: String;
   telephone: String;
+  role: string;
   universityId: string;
 }

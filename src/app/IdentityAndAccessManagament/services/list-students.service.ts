@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 export class ListStudentsService {
 
   private apiUrl = 'http://localhost:8080/api/students';
+  private universityUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) { }
 
@@ -54,5 +55,13 @@ export class ListStudentsService {
     );
   }
 
+  getAllStudents(): Observable<Student[]> {
+    return this.http.get<Student[]>(this.apiUrl);
+  }
+
+  getAllStudentsByUniversityId(universityId: string): Observable<Student[]> {
+    const url = `${this.universityUrl}/universities/${universityId}/students`;
+    return this.http.get<Student[]>(url);
+  }
 
 }

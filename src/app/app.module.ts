@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ResultsComponent } from './core/results/results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { QuestionBankComponent } from './DataCollection/QuestionBank/question-bank/question-bank.component';
 import { AddRowDialogComponent } from './DataCollection/QuestionBank/add-row-dialog/add-row-dialog.component';
@@ -37,6 +37,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { SubscriptionInfoComponent } from './Subscription/subscription-info/subscription-info.component';
 import { SupportComponent } from './ProactiveCommunication/support/support.component';
+import { StudentListComponent } from './IdentityAndAccessManagament/student-list/student-list.component';
+import { PsychologistListComponent } from './IdentityAndAccessManagament/psychologist-list/psychologist-list.component';
+import { PaymentInfoComponent } from './Subscription/payment-info/payment-info.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StatisticsComponent } from './DiagnosticTreatment/statistics/statistics.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgChartsModule } from 'ng2-charts';
+import { ManagerProfileComponent } from './IdentityAndAccessManagament/manager-profile/manager-profile.component';
+import { PsychologistProfileComponent } from './IdentityAndAccessManagament/psychologist-profile/psychologist-profile.component';
+import { ViewAppointmentsComponent } from './ProactiveCommunication/view-appointments/view-appointments.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -60,7 +71,14 @@ import { SupportComponent } from './ProactiveCommunication/support/support.compo
     CreateRecommendationComponent,
     AppointmentComponent,
     SubscriptionInfoComponent,
-    SupportComponent
+    SupportComponent,
+    StudentListComponent,
+    PsychologistListComponent,
+    PaymentInfoComponent,
+    StatisticsComponent,
+    ManagerProfileComponent,
+    PsychologistProfileComponent,
+    ViewAppointmentsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,11 +98,17 @@ import { SupportComponent } from './ProactiveCommunication/support/support.compo
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    NgChartsModule,
+    FullCalendarModule,
+
   ],
   providers: [
     QuestionBankService,
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

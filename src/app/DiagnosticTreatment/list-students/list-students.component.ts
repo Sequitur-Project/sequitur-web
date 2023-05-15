@@ -8,6 +8,7 @@ import { ResultsInfoComponent } from '../results-info/results-info.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateRecommendationComponent } from '../create-recommendation/create-recommendation.component';
 import { AppointmentComponent } from 'src/app/ProactiveCommunication/appointment/appointment.component';
+import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-list-students',
@@ -15,6 +16,7 @@ import { AppointmentComponent } from 'src/app/ProactiveCommunication/appointment
   styleUrls: ['./list-students.component.css']
 })
 export class ListStudentsComponent implements OnInit {
+  @ViewChild(SidebarComponent) sidebarComponent!: SidebarComponent | undefined;
 
   displayedColumns: string[] = ['name', 'email', 'status', 'result','info','recommendation','appointment','date'];
   dataSource: MatTableDataSource<Student>;
@@ -36,6 +38,7 @@ export class ListStudentsComponent implements OnInit {
       },
       error => console.log(error)
     );
+    this.sidebarComponent?.updateLoginState();
   }
 
   showResultsDialog(studentId: string) {

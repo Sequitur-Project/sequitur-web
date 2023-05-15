@@ -1,5 +1,5 @@
 export class University {
-  id?: String;
+  id?: string;
   address: string;
   city: String;
   country: String;

@@ -2,6 +2,7 @@
 </div>
 <div id="white-screen">
 <section id="formulary">
+<img src="assets/images/LOGOTIPO.png" class="logo">
 <span id="login-title"> INICIAR SESIÓN </span>
 <label class="form-label">Correo Electrónico :</label>
 <div class="mb-3">
@@ -14,13 +15,20 @@
   <input type="password" class="form-control" id="FormControlInput1" placeholder="Ingrese su contraseña" [(ngModel)]="password">
   <img class="icons" src="assets/images/lock.png">
 </div>
+<div>
+  <label for="role">Rol:</label>
+  <select [(ngModel)]="role" name="role" id="role">
+    <option value="Psicólogo">Psicólogo</option>
+    <option value="Manager">Manager</option>
+  </select>
+</div>
 <span id="password-question"> Olvidaste tu contraseña? </span>
 
-<button class="btn btn-primary" type="button" id="login-btn" routerLink="/results" (click)="login()">Iniciar Sesión</button>
+<button class="btn btn-primary" type="button" id="login-btn" (click)="login()">Iniciar Sesión</button>
 
 <div style="width: 100%; height: 20px; border-bottom: 1.5px solid #C2C2C2; text-align: center; color: #C2C2C2; margin-top: 30px">
   <span style="font-size: 14.14px;  background-color: #FFFFFF; padding: 30px; margin-top: 5px;">
-    OR
+    O
   </span>
 </div>
 

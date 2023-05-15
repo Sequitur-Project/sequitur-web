@@ -1,0 +1,127 @@
+.donut-chart {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.donut-chart-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  border-top-color: green;
+  animation: spin 2s linear forwards;
+}
+.donut-chart-circle2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  border-top-color: red;
+  animation: spin 2s linear forwards;
+}
+
+.donut-chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.pie-chart-card {
+  height: 250px;
+  width: 400px;
+}
+
+.chart-container {
+  height: 200px;
+  width: 100%;
+}
+
+.statistics{
+  position: absolute;
+  left: 300px;
+  bottom: 250px;
+}
+.chart{
+  background-color: rgba(241, 232, 232, 0.979);
+  margin: 30px;
+  padding: 20px;
+  text-align: center;
+}
+.chart-depression {
+  margin-top: 2rem;
+  text-align: center;
+  width: 800px;
+  height: 400px;
+  position: absolute;
+  left: 700px;
+  top: 50px;
+}
+
+
+.bar-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 80%;
+  height: 250px;
+  margin: 0 auto;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.bar-depression-quantity {
+  background-color: #4caf50;
+  width: 20%;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.bar-depression-quantity:nth-child(2n+1) {
+  background-color: #2196f3;
+}
+
+.bar-depression-quantity:nth-child(2n) {
+  background-color: #ff9800;
+}
+
+.label {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #444;
+}
+
+
+
+
+
+

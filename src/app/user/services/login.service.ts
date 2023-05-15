@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Psychologist } from "src/app/IdentityAndAccessManagament/models/psychologist";
+import { UpdatePsychologistResource } from "src/app/IdentityAndAccessManagament/models/psychologist-resource";
 
 
 @Injectable({
@@ -18,11 +19,12 @@ export class PsychologistService {
     return this.http.get<Psychologist>(url);
   }
 
-  getPsychologistByEmailAndPassword(email: string, password: string): Observable<Psychologist> {
+  getPsychologistByEmailAndPasswordAndRole(email: string, password: string, role: string): Observable<Psychologist> {
     const url = `${this.apiUrl}/psychologists/login`;
     const params = new HttpParams()
       .set('email', email)
-      .set('password', password);
+      .set('password', password)
+      .set('role', role);
     return this.http.get<Psychologist>(url, { params });
   }
 
@@ -31,21 +33,25 @@ export class PsychologistService {
     const body = { firstName, lastName, email, password, telephone, universityId };
     return this.http.post<Psychologist>(url, body);
   }
-
+  updatePsychologist(psychologistId: string, universityId: string, psychologist: UpdatePsychologistResource): Observable<UpdatePsychologistResource> {
+    const url = `${this.apiUrl}/universities/${universityId}/psychologists/${psychologistId}`;
+    return this.http.put<UpdatePsychologistResource>(url, psychologist);
+  }
 
   logout() {
     this.loggedInPsychologist = undefined;
-    localStorage.removeItem('loggedInPsychologist');
+    sessionStorage.removeItem('loggedInPsychologist');
+    sessionStorage.clear();
   }
 
   setLoggedInPsychologist(psychologist: Psychologist) {
     this.loggedInPsychologist = psychologist;
-    localStorage.setItem('loggedInPsychologist', JSON.stringify(psychologist));
+    sessionStorage.setItem('loggedInPsychologist', JSON.stringify(psychologist));
   }
 
   getLoggedInPsychologist(): Psychologist | undefined {
     if (!this.loggedInPsychologist) {
-      const storedData = localStorage.getItem('loggedInPsychologist');
+      const storedData = sessionStorage.getItem('loggedInPsychologist');
       if (storedData) {
         this.loggedInPsychologist = JSON.parse(storedData);
       }
