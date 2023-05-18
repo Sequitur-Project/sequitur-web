@@ -1,0 +1,80 @@
+#blue-screen{
+  background-color: #16B268;
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+#white-screen{
+  background-color: #FFFFFF;
+  margin-left: 960px;
+  top: 0;
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+}
+#formulary{
+  width: 70%;
+  margin-top: 5%;
+  margin-left: 15%;
+}
+.form-label{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #555555;
+}
+.form-control{
+  margin-bottom: 30px;
+
+}
+#register-btn{
+  margin-top: 40px;
+  background-color: #147446;
+  color: #fFFFFF;
+  border: none;
+  width: 100%;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16.6px;
+}
+#account-btn{
+  margin-top: 40px;
+  background-color: #FFFFFF;
+  color: #147446;
+  border: 1px solid #147446;
+  width: 100%;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16.6px;
+}
+#register-title{
+  font-family:'Poppins', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+  font-size: 16.6px;
+  padding-bottom: 50px;
+  color: #555555;
+}
+h2{
+  font-family:'Poppins', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+  font-size: 16.6px;
+  padding-bottom: 20px;
+  color: #555555;
+}
+#singup-link{
+  color: #147446;
+  text-decoration: none;
+}
+
+.row{
+  margin-top: -10px;
+}
+

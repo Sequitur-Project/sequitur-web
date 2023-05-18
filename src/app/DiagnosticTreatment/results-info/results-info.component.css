@@ -1,0 +1,101 @@
+.personal-info {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #16B268;
+}
+
+.student-info {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+.interaction-info{
+  margin-top: 15px;
+  margin-bottom: -20px;
+  text-align: center;
+  color: #16B268;
+}
+.interactiondiv-info{
+  width: 100%;
+  height: 84%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.resultados{
+
+  width: 50%;
+  height: 60%;
+  margin-right: 20px;
+}
+
+.student-photo {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.student-details {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+label {
+  font-weight: lighter;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.student-section {
+
+  justify-content: flex-start;
+}
+
+.results-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-top: -405px;
+  padding-left: 100px;
+}
+.interaction-section{
+  position: absolute;
+  top: 390px;
+  height: 325px;
+}
+.accordion-button{
+  margin-bottom: -20px;
+}
+#bitacora{
+  background-color: #16B268;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 20px;
+  width: 610px;
+  margin-top: -120px;
+}
+#phq{
+  background-color: #16B268;
+  position: absolute;
+ margin-top: 120px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 20px;
+  width: 610px;
+}
+
+
+

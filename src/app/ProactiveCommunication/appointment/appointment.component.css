@@ -1,0 +1,54 @@
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.appointment-form mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+
+.appointment-form .mat-select {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-container button:first-child {
+  margin-right: 10px;
+}
+
+.mat-datepicker-toggle {
+  position: relative;
+}
+
+.mat-datepicker-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #147446;
+}
+
+.mat-datepicker-toggle.mat-datepicker-toggle-active::before {
+  border-top: 0;
+  border-bottom: 8px solid #333;
+}
+
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #fff !important;
+}
+
+

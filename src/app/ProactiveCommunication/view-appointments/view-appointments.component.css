@@ -1,0 +1,11 @@
+.calendar-container{
+  position: absolute;
+  left: 350px;
+  width: 80%;
+}
+
+
+.fc .fc-col-header-cell-cushion {
+
+  color: red;
+}

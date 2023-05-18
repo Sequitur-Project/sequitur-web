@@ -23,7 +23,7 @@ import { EditResponseComponent } from '../edit-response/edit-response.component'
   styleUrls: ['./question-bank.component.css']
 })
 export class QuestionBankComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['displayName', 'trainingPhrases', 'responses', 'createdAt','trainingPhrase','addResponse','editIntent'];
+  displayedColumns: string[] = ['displayName', 'trainingPhrases', 'responses', 'createdAt','trainingPhrase','addResponse','editIntent','deleteIntent'];
   dataSource: MatTableDataSource<Intent>;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -55,6 +55,8 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
 
   addTrainingPhrase(intent: Intent) {
     const dialogRef = this.dialog.open(AddTrainingPhraseComponent, {
+      width: '1000px',
+      height: '368px',
       data: {
         intentId: intent.id
       }
@@ -66,8 +68,27 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  addResponse(intent: Intent) {
+    const dialogRef = this.dialog.open(AddResponseComponent, {
+      width: '1000px',
+      height: '275px',
+      data: {
+        intentId: intent.id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        intent.responses.push(result);
+      }
+    });
+  }
   editTrainingPhrase(intent: Intent, trainingPhrase: TrainingPhrase) {
+
     const dialogRef = this.dialog.open(EditTrainingPhraseComponent, {
+      width: '50%',
+      height:'250px',
       data: {
         intentId: intent.id,
         trainingPhraseId: trainingPhrase.id,
@@ -85,6 +106,8 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
 
   editResponse(intent: Intent, response: ResponseModel) {
     const dialogRef = this.dialog.open(EditResponseComponent, {
+      width: '50%',
+      height:'250px',
       data: {
         intentId: intent.id,
         responseId: response.id,
@@ -100,19 +123,7 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
     });
   }
 
-  addResponse(intent: Intent) {
-    const dialogRef = this.dialog.open(AddResponseComponent, {
-      data: {
-        intentId: intent.id
-      }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        intent.responses.push(result);
-      }
-    });
-  }
 
 
 
@@ -125,7 +136,8 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddRowDialogComponent, {
-      width: '250px',
+      width: '25%',
+      height: '505px',
       data: { name: '' }
     });
 
@@ -146,6 +158,8 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
 
   edit(intent: Intent): void {
     const dialogRef = this.dialog.open(EditIntentComponent, {
+      width: '50%',
+      height:'250px',
       data: {
         intent: intent
       }

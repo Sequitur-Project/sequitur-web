@@ -1,0 +1,36 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+}
+
+.week {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #147446;
+  background-color: hsl(150, 55%, 95%);
+}
+
+.date {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+.day p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  /* Add any additional styles as per your preference */
+}

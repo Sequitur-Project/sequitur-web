@@ -1,13 +1,45 @@
 
 <nav class="main-menu">
-    <div id="profile">
+  <div id="profile">
+    <a *ngIf="loggedInPsychologist" routerLink="/psychologistProfile">
       <i class="fa fa-user-circle fa-5x" id="icons"></i>
-      <span id="user-name"> Anna George </span>
-      <span id="user-tag"> Encargado </span>
-      <hr id="divide-line">
+    </a>
+    <a *ngIf="loggedInManager" routerLink="/profile">
+      <i class="fa fa-user-circle fa-5x" id="icons"></i>
+    </a>
+
+    <div id="user-info">
+      <span id="user-name" *ngIf="loggedInPsychologist && !loggedInManager">
+        {{loggedInPsychologist.firstName}} {{loggedInPsychologist.lastName}}
+      </span>
+      <span id="user-name" *ngIf="!loggedInPsychologist && loggedInManager">
+        {{loggedInManager.firstName}} {{loggedInManager.lastName}}
+      </span>
+      <br>
+      <span id="user-tag">{{ getRole() }}</span>
     </div>
+  </div>
+  <hr id="divide-line">
             <ul>
-                <li>
+              <li *ngIf="!loggedInPsychologist && loggedInManager">
+                <a routerLink="/home">
+                  <i class="fa fa-home fa-2x" ></i>
+                    <span class="nav-text">
+                       Inicio
+                    </span>
+                </a>
+
+            </li>
+            <li *ngIf="loggedInPsychologist && !loggedInManager">
+              <a routerLink="/homePsychologist">
+                <i class="fa fa-home fa-2x" ></i>
+                  <span class="nav-text">
+                     Inicio
+                  </span>
+              </a>
+
+          </li>
+                <li *ngIf="loggedInPsychologist && !loggedInManager">
                     <a routerLink="/results">
                       <i class="fa fa-pie-chart fa-2x" ></i>
                         <span class="nav-text">
@@ -16,8 +48,26 @@
                     </a>
 
                 </li>
-                <li class="has-subnav">
-                    <a href="#">
+                <li *ngIf="loggedInPsychologist && !loggedInManager">
+                  <a routerLink="/appointments">
+                    <i class="fa fa-calendar fa-2x" ></i>
+                      <span class="nav-text">
+                         Citas
+                      </span>
+                  </a>
+
+              </li>
+                <li *ngIf="!loggedInPsychologist && loggedInManager">
+                  <a routerLink="/statistics">
+                    <i class="fa fa-bar-chart fa-2x" ></i>
+                      <span class="nav-text">
+                         Estadisticas
+                      </span>
+                  </a>
+
+              </li>
+                <li class="has-subnav" *ngIf="!loggedInPsychologist && loggedInManager">
+                    <a routerLink="/students">
                         <i class="fa fa-users fa-2x"></i>
                         <span class="nav-text">
                             Alumnos
@@ -25,8 +75,8 @@
                     </a>
 
                 </li>
-                <li class="has-subnav">
-                    <a href="#">
+                <li class="has-subnav" *ngIf="!loggedInPsychologist && loggedInManager">
+                    <a routerLink="/psychologists">
                        <i class="fa fa-user fa-2x"></i>
                         <span class="nav-text">
                             Psicologos
@@ -34,7 +84,7 @@
                     </a>
 
                 </li>
-                <li class="has-subnav">
+                <li class="has-subnav" *ngIf="loggedInPsychologist && !loggedInManager">
                     <a routerLink="/questionBank">
                        <i class="fa fa-list-alt fa-2x"></i>
                         <span class="nav-text">
@@ -43,16 +93,16 @@
                     </a>
 
                 </li>
-                <li>
-                    <a href="#">
+                <li *ngIf="!loggedInPsychologist && loggedInManager">
+                    <a routerLink="/subscriptions">
                         <i class="fa fa-credit-card-alt fa-2x"></i>
                         <span class="nav-text">
-                            Suscripcion
+                            Subscripcion
                         </span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a routerLink="/support">
                         <i class="fa fa-cog fa-2x"></i>
                         <span class="nav-text">
                            Configuracion
@@ -63,14 +113,13 @@
             </ul>
 
             <ul class="logout">
-                <li>
-                   <a href="#">
-                         <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">
-                            Cerrar Sesion
-                        </span>
-                    </a>
-                </li>
-            </ul>
+              <li>
+                  <a href="#" (click)="logout()">
+                      <i class="fa fa-power-off fa-2x"></i>
+                      <span class="nav-text">Cerrar Sesion</span>
+                  </a>
+              </li>
+          </ul>
+
         </nav>
 

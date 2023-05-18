@@ -1,0 +1,32 @@
+.phq-question {
+  margin-bottom: 20px;
+}
+
+.phq-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.phq-options button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.phq-options button.selected {
+  background-color: #16B268;
+  color: #fff;
+}
+
+.phq-options button:disabled {
+  cursor: not-allowed;
+}
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

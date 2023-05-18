@@ -1,0 +1,41 @@
+
+<body>
+  <app-sidebar></app-sidebar>
+  <div class="container rounded bg-white mt-3 mb-3">
+    <div class="row">
+
+        <div class="col-md-6 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right" style="color: #16B268; font-size: 18px;">Opciones de Perfil</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Nombres</label><input type="text" class="form-control" placeholder="Nombres" [(ngModel)]="managerName"></div>
+                    <div class="col-md-6"><label class="labels">Apellidos</label><input type="text" class="form-control" [(ngModel)]="managerLastName" placeholder="Apellidos"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Telefono</label><input type="text" class="form-control" placeholder="Numero de Telefono" [(ngModel)]="managerPhone"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Correo Electronico" [(ngModel)]="managerEmail"></div>
+                    <div class="col-md-12"><label class="labels">Contraseña</label><input type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="managerPassword"></div>
+                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="password" class="form-control" placeholder="Nueva Contraseña" [(ngModel)]="newPassword"></div>
+                    <div class="col-md-12"><label class="labels">Confirmar Nueva Contraseña</label><input type="password" class="form-control" placeholder="Confirmar Nueva Contraseña" [(ngModel)]="confirmNewPassword"></div>
+                </div>
+
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" (click)="updateManagerProfile()">Guardar Cambios del Perfil</button></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience" style="color: #16B268; font-size: 18px;"><span>Edit Datos de Universidad</span></div><br>
+                <div class="col-md-12"><label class="labels">Nombre de la Universidad</label><input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="universityName"></div> <br>
+                <div class="col-md-12"><label class="labels">Pais</label><input type="text" class="form-control" placeholder="Pais" [(ngModel)]="universityCountry"></div>
+                <div class="col-md-12"><label class="labels">Ciudad</label><input type="text" class="form-control" placeholder="Ciudad" [(ngModel)]="universityCity"></div>
+                <div class="col-md-12"><label class="labels">Direccion</label><input type="text" class="form-control" placeholder="Direccion" [(ngModel)]="universityAddress"></div>
+                <div class="col-md-12"><label class="labels">Codigo Zip</label><input type="text" class="form-control" placeholder="Codigo ZIP" [(ngModel)]="universityZip"></div>
+                <div class="col-md-12"><label class="labels">RUC</label><input type="text" class="form-control" placeholder="RUC" [(ngModel)]="universityRuc"></div>
+            </div>
+            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" (click)="updateUniversityProfile()">Guardar Cambios de la Universidad</button></div>
+        </div>
+    </div>
+</div>
+</body>

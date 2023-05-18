@@ -1,0 +1,22 @@
+<body>
+  <div class="dialog-container">
+    <hr id="line">
+    <h2 class="dialog-title">Crear Nueva Recomendacion</h2>
+    <div class="dialog-content">
+      <div class="form-group">
+        <label for="recommendation-text">Texto de Recomendacion</label>
+        <textarea class="form-control" id="recommendation-text" [(ngModel)]="text" placeholder="Ingresa la recomendacion"></textarea>
+      </div>
+      <div class="icon-container">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-info-circle"></i>
+      </div>
+    </div>
+    <div class="dialog-actions">
+      <button class="btn btn-cancel" (click)="onCancel()"><i class="fa fa-times"></i>Cancelar</button>
+      <button class="btn btn-create" (click)="onSubmit()"><i class="fa fa-check"></i>Enviar</button>
+    </div>
+    <div class="background-image"></div>
+  </div>
+</body>

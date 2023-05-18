@@ -1,4 +1,5 @@
-<h1 mat-dialog-title>EditarRespuesta</h1>
+<body>
+<h1 mat-dialog-title style="color: #333;">Editar Respuesta</h1>
 <div mat-dialog-content>
     <input matInput [(ngModel)]="response.messageText" placeholder="Response" required>
 </div>
@@ -6,3 +7,4 @@
   <button mat-button (click)="onCancel()">Cancelar</button>
   <button mat-button color="primary" (click)="onSave()">Guardar</button>
 </div>
+</body>
