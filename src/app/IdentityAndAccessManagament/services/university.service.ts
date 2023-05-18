@@ -8,7 +8,7 @@ import { UpdateUniversityResource } from "../models/university-resource";
   providedIn: 'root'
 })
 export class UniversityService {
-  private apiUrl = 'http://localhost:8080/api/universities';
+  private apiUrl = 'https://back-sequitur-production.up.railway.app/api/universities';
 
   constructor(private http: HttpClient) { }
 

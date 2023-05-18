@@ -7,7 +7,7 @@ import { Recommendation } from "src/app/DiagnosticTreatment/models/recommendatio
   providedIn: 'root'
 })
 export class RecommendationService {
-  private readonly apiUrl = 'http://localhost:8080/api';
+  private readonly apiUrl = 'https://back-sequitur-production.up.railway.app/api';
 
   constructor(private http: HttpClient) {}
 

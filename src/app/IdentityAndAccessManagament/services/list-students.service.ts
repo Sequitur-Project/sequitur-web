@@ -11,8 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class ListStudentsService {
 
-  private apiUrl = 'http://localhost:8080/api/students';
-  private universityUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://back-sequitur-production.up.railway.app/api/students';
+  private universityUrl = 'https://back-sequitur-production.up.railway.app/api';
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class BinnacleService {
-  private apiUrl = 'http://localhost:8080/api'; // Replace with your actual API URL
+  private apiUrl = 'https://back-sequitur-production.up.railway.app/api'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) { }
 

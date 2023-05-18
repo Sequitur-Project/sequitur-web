@@ -8,7 +8,7 @@ import { ConversationResource } from "../models/conversation-resource";
   providedIn: 'root'
 })
 export class ConversationService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://back-sequitur-production.up.railway.app/api';
 
   constructor(private http: HttpClient) {}
 
