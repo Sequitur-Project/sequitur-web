@@ -11,7 +11,7 @@
 
 .container{
 
-    background: #eee;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,7 +88,6 @@
     background:linear-gradient(45deg,#16B268, #147446);
     border-radius: 5px;
     backface-visibility: hidden;
-    box-shadow: 0 15px 25px rgba(0,0,0,.2);
     padding:20px;
     transform:perspective(1000px) rotateY(0deg);
     transition:transform .4s ease-out;
@@ -169,3 +168,12 @@
     margin-top: 30px;
     height: 30px;
 }
+
+.custom-modalbox > mat-dialog-container {
+    background: transparent !important;
+  }
+
+  .custom-modalbox > mat-mdc-dialog-container {
+    background: transparent !important;
+  }
+  

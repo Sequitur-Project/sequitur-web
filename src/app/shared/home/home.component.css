@@ -45,12 +45,7 @@
   
   }
   
-  .rounded-grid {
-    border-radius: 8px; /* adjust the border-radius as desired */
-    overflow: hidden;
-    border: 1px solid #bcd1bd;
-    border-bottom:6px solid #16B268
-  }
+  
   
   .subtitulo{
    color:#000000;
@@ -66,7 +61,188 @@
   }
   
   .centerpic{
-    bottom:0;
-    width:70%;
-    height:auto;
+    height:100%;
+    position:absolute;
+    bottom: 0!important;
+    width:auto;
+  } 
+
+
+  .rounded-grid {
+    border-radius: 8px; /* adjust the border-radius as desired */
+    overflow: hidden;
+    border: 1px solid #bcd1bd;
+    border-bottom:6px solid #16B268;
+    color:rgb(17, 17, 17);   
+    -webkit-transition: all .2s ease-in-out;
+    transition:all .2s ease-in-out;
   }
+
+  .rounded-grid:hover{
+    color:#fff;
+    -webkit-transition: all .2s linear;
+    transition:all .2s linear;
+    
+  }
+
+  .transparent-grid {
+    border-radius: 8px; /* adjust the border-radius as desired */
+    background:transparent;
+  }
+  
+.button-5 {
+    width: 200px;
+    border-radius: 5px;
+    background-color: #16B268;
+    background-image: #16B268;
+    background-image: -moz-linear-gradient(top, #fafafa 0%, #fafafa 100%); 
+    background-image: -webkit-linear-gradient(top, #fafafa 0%,#fafafa 100%); 
+    background-image: linear-gradient(to bottom, #fafafa 0%,#fafafa 100%); 
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;    
+  }
+  .button-5:hover {
+    background-position: -40vw;
+    transition: all 400ms ease-in-out;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+  }
+
+  .iconi{
+    position:absolute;
+    font-size:60px;
+    opacity:1;
+    color:#16B268;
+    left:-30px;
+    margin-top:10px;
+    -webkit-transition: all .2s linear;
+    transition:all .2s linear;
+  }
+
+  .titles{
+    position: absolute;
+    left:135px;
+    text-transform: uppercase;
+    letter-spacing: 2px!important;
+    font-size:14px;
+    -webkit-transition: all .2s linear;
+    transition:all .2s linear;
+  }
+
+  .descriptcion{
+    position: absolute;
+    letter-spacing: 1px!important;
+    font-size:12px;
+    -webkit-transition: all .2s linear;
+    transition:all .2s linear;
+    text-align: left!important;
+    top:100px;
+    left:135px;
+  }
+
+  .rounded-grid:hover .iconi{
+    left:-20px;
+    color:#fff;
+    -webkit-transition: all .2s linear;
+    transition:all .2s linear;
+  }
+
+  .rounded-grid:hover .titles{
+    left:145px;
+    -webkit-transition: all .2s linear;
+    transition:all .2s linear;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    
+    30%, 50%, 70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    40%, 60% {
+      transform: translate3d(2px, 0, 0);
+  }
+}
+
+
+.additional-info {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.additional-elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 95%;
+}
+
+.additional-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  background-color: rgb(209, 218, 195);
+  width: 30%;
+  border:none;
+  border-radius: 5px;
+}
+
+.additional-element i {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  margin-top: 5px;
+}
+
+.additional-element p {
+  font-size: 2.2rem;
+}
+#separation{
+  width: 95%;
+}
+#subtitle{
+  font-size: 25px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#carouselExample{
+  position:absolute;
+  margin-top:130px;
+}
+
+.carousel-control-prev-icon{
+  position:fixed;
+  filter:invert();
+  left:350px;
+}
+
+.carousel-control-next-icon{
+  position:fixed;
+  filter:invert();
+  right:100px;
+}
+
+#title{
+  position: absolute;
+  margin-top:75px;
+  font-size:20px;
+  color:#16B268;
+}
+
+.logo{
+  position:absolute;
+  margin-top:-80px;
+  width:180px;
+  height:auto;
+}

@@ -14,6 +14,8 @@ import { ListPsychologistsService } from '../services/list-psychologists.service
 export class PsychologistListComponent implements OnInit{
   displayedColumns: string[] = ['name', 'email', 'telephone'];
   dataSource: MatTableDataSource<Psychologist>;
+  isfinishedLoading: boolean = false;
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -36,6 +38,9 @@ export class PsychologistListComponent implements OnInit{
           this.dataSource = new MatTableDataSource(this.psychologists);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+          setTimeout(() => {
+            this.isfinishedLoading = true;
+          }, 200);
         });
     }
   }

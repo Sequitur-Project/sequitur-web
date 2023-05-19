@@ -5,24 +5,78 @@
        
         
 
-        <mat-grid-list cols="6" rowHeight="80px" gutterSize="20" class="bottomm">
-            <mat-grid-tile [colspan]="6" [rowspan]="2" [style.background]="'#fafafa'" class="rounded-grid">
-                1
-            </mat-grid-tile>      
-            <mat-grid-tile [colspan]="2" [rowspan]="2" [style.background]="'#fafafa'" class="rounded-grid">
-                2
-            </mat-grid-tile>
-            <mat-grid-tile [colspan]="2" [rowspan]="5" [style.background]="'#fafafa'" class="rounded-grid">
+        <mat-grid-list cols="7" rowHeight="80px" gutterSize="20" class="bottomm">            
+
+
+            <mat-grid-tile [colspan]="7" [rowspan]="2" [style.background]="'transparent'">
+                
+                <img src="assets/images/IMAGOTIPO.png" class="logo">
+
+                <div id="title">¡Bienvenido de vuelta a Sequitur, {{loggedInManager?.firstName}}!</div>
+
+
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        
+                            <p>
+                              "El éxito en la vida no se mide por lo que logras sino por los obstáculos que superas"
+                            </p>                         
+            
+                      </div>
+                      <div class="carousel-item">
+                        
+                            <p>
+                              "Todo lo que necesitas para ser feliz se encuentra al otro lado de tus miedos"
+                            </p>
+                          
+                      </div>
+                      <div class="carousel-item">
+                        
+                            <p>
+                              "Si la montaña que subes parece cada vez más imponente es que la cima está cada vez más cerca"
+                            </p>
+                          
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+
+
+
+
+
+
+            </mat-grid-tile>    
+            <a routerLink="/students"><mat-grid-tile [colspan]="2" [rowspan]="2" class="rounded-grid button-5">
+                <div class="iconi"><i class="fa fa-users fa-2x"></i></div>
+                <div class="titles">Alumnos</div>
+                <div class="descriptcion">Ver todos los estudiantes registrados. </div>
+            </mat-grid-tile></a>
+            <mat-grid-tile [colspan]="3" [rowspan]="5" [style.background]="'transparent'" class="transparent-grid">
                 <img src="assets/images/manager.png" class="centerpic">
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="2" [rowspan]="2" [style.background]="'#fafafa'" class="rounded-grid">
-                4
+            <mat-grid-tile [colspan]="2" [rowspan]="2" class="rounded-grid button-5">
+                <div class="iconi"><i class="fa fa-bar-chart fa-2x" ></i></div>
+                <div class="titles">Estadisticas</div>
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="2" [rowspan]="2" [style.background]="'#fafafa'" class="rounded-grid">
-                5
+            <mat-grid-tile [colspan]="2" [rowspan]="2" class="rounded-grid button-5">
+                <div class="iconi"><i class="fa fa-user fa-2x"></i></div>
+                <div class="titles">Psicólogos</div>
+                <div class="descriptcion">Ver todos los psicólogos registrados. </div>
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="2" [rowspan]="2" [style.background]="'#fafafa'" class="rounded-grid">
-                6
+            <mat-grid-tile [colspan]="2" [rowspan]="2" class="rounded-grid button-5" >
+                <div class="iconi"><i class="fa fa-credit-card-alt fa-2x"></i></div>
+                <div class="titles">Subscripción</div>
+                <div class="descriptcion">Revisa tu suscripción con nosotros. </div>
             </mat-grid-tile>
         </mat-grid-list>
 

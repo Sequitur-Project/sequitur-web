@@ -12,7 +12,7 @@ a{
   --clr2: #efefef;
   --clr3: transparent;
   --clr4: tomato;
-  --animatedback: rgb(75, 208, 120);
+  --animatedback: rgb(159, 255, 167);
   --border-radius: 7px;
   --text-radius: 50em;
 }
@@ -209,3 +209,10 @@ body {
   }
 }
 
+.custom-modalbox > mat-dialog-container {
+  background-color: transparent !important;
+}
+
+.custom-modalbox > mat-mdc-dialog-container {
+  background-color: transparent !important;
+}

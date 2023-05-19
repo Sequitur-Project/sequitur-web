@@ -93,7 +93,11 @@ export class StatisticsComponent {
         this.depressionData.push({name:'Depresión',value:this.set.depressionPercentage});
         this.depressionData.push({name:'No depresión',value:this.set.noDepressionPercentage});
 
-        this.isfinishedLoading = true;
+        setTimeout(() => {
+          this.isfinishedLoading = true;
+        }, 600);
+
+       
       },
       error => console.log(error)
     );

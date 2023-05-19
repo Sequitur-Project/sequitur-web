@@ -15,6 +15,7 @@ import { University } from '../models/university';
 export class StudentListComponent implements OnInit{
   displayedColumns: string[] = ['name', 'email', 'telephone', 'genre','birthDate'];
   dataSource: MatTableDataSource<Student>;
+  isfinishedLoading: boolean = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -38,6 +39,11 @@ export class StudentListComponent implements OnInit{
           this.dataSource = new MatTableDataSource(this.students);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+
+          setTimeout(() => {
+            this.isfinishedLoading = true;
+          }, 200);
+  
         });
     }
   }

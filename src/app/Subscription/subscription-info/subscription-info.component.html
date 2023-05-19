@@ -1,21 +1,52 @@
-<p>subscription-info works!</p>
-<div id="division">
-  <span id="title">Subscribirse</span>
-  <p id="p1">En este apartado encontrarás información sobre el concepto de la subscripción que manejamos para nuestra aplicación. Sequitur es una aplicación implementada por alumnos universitarios de la Universidad Peruana de Ciencias Aplicadas. De este modo para que los estudiantes y psicólogos tengan acceso a nuestra plataforma, debes registrar a la universidad con la subscripción que se presenta a continuación</p>
-  <img id="image" src="/assets/images/STUDENTS.png" alt="">
-
-  <div class="card text-center">
-    <div class="card-body" *ngIf="subscription">
-      <img src="assets/images/sub.png" alt="">
-      <h2 class="card-title">{{subscription.title}}</h2>
-      <p class="card-text">{{subscription.description}}</p>
-      <p class="card-text">Precio: {{subscription.price}}$</p>
-    </div>
+<body>
+  <div id="whiter" *ngIf="!isfinishedLoading"></div>
+  <div id="content" *ngIf="!isfinishedLoading">
+      <div id="centeru">
+          <div class="donut"></div>
+      </div>
   </div>
 
-  <button id="button" (click)="openPaymentDialog()" [disabled]="subscriptionButtonDisabled">{{subscriptionButtonText}}</button>
+  <div id="content" *ngIf="isfinishedLoading">
+
+
+  <mat-grid-list cols="8" rowHeight="85px" gutterSize="20">
+    <mat-grid-tile [colspan]="5" [rowspan]="3" [style.background]="'transparent'" class="left-aligned-tile">
+        <div class="headere">
+            <div class="titulos">
+                <h2>Suscribirse.</h2>
+            </div>
+            <div class="descripcion">En este apartado encontrarás información sobre el concepto de la subscripción que manejamos para nuestra aplicación. Sequitur es una aplicación implementada por alumnos universitarios de la Universidad Peruana de Ciencias Aplicadas. De este modo para que los estudiantes y psicólogos tengan acceso a nuestra plataforma, debes registrar a la universidad con la subscripción que se presenta a continuación</div>
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" [rowspan]="6" [style.background]="'transparent'" class="gridy">
+      <img id="image" src="/assets/images/STUDENTS.png" alt="">
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="5" [rowspan]="3" [style.background]="'#fafafa'" class="rounded-gridy">
+        
+      <div class="text-center">
+        <div class="card-body" *ngIf="subscription">
+          <img src="assets/images/sub.png" alt="">
+          <h2 class="card-title">{{subscription.title}}</h2>
+          <p class="card-text">{{subscription.description}}</p>
+          <p class="card-text">Precio: {{subscription.price}}$</p>
+        </div>
+      </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile  *ngIf="!subscriptionButtonDisabled" (click)="openPaymentDialog()" [colspan]="8" [rowspan]="1" class="rounded-grid button-5">
+      {{subscriptionButtonText}} 
+    </mat-grid-tile> 
+
+    <mat-grid-tile  *ngIf="subscriptionButtonDisabled" [colspan]="8" [rowspan]="1" [style.background]="'#fafafa'" class="rounded-gridy">
+      {{subscriptionButtonText}} 
+    </mat-grid-tile> 
+
+</mat-grid-list>
+
 </div>
-
-
-
 <app-sidebar></app-sidebar>
+</body>
+

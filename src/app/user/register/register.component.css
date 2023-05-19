@@ -9,10 +9,10 @@
 }
 #white-screen{
   background-color: #FFFFFF;
-  margin-left: 960px;
+  right:0;
   top: 0;
   position: absolute;
-  width: 50%;
+  width: 60%;
   height: 100vh;
 }
 #formulary{

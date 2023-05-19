@@ -13,8 +13,10 @@ import { ManagerService } from 'src/app/user/services/login-manager.service';
 })
 export class SubscriptionInfoComponent implements OnInit {
   subscription: SubscriptionModel;
-  subscriptionButtonText: string = 'Subscribirse';
+  subscriptionButtonText: string = 'SUSCRIBIRSE';
   subscriptionButtonDisabled: boolean = false;
+  isfinishedLoading: boolean = false;
+
 
   constructor(private subscriptionService: SubscriptionService, private dialog: MatDialog, private managerService: ManagerService) {}
 
@@ -40,6 +42,9 @@ export class SubscriptionInfoComponent implements OnInit {
           this.subscriptionButtonDisabled = true;
           console.log(status);
         }
+        setTimeout(() => {
+          this.isfinishedLoading = true;
+        }, 300);
       });
     }
   }
@@ -48,11 +53,13 @@ export class SubscriptionInfoComponent implements OnInit {
     const dialogRef = this.dialog.open(PaymentInfoComponent, {
       width: '800px',
       height: '700px',
-      data: { subscription: this.subscription }
+      data: { subscription: this.subscription },
+      panelClass: 'custom-modalbox',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.checkSubscriptionStatus();
     });
   }
 }
