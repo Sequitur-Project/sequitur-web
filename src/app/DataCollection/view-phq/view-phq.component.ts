@@ -9,6 +9,8 @@ import { ConversationService } from '../services/conversation.service';
   styleUrls: ['./view-phq.component.css']
 })
 export class ViewPhqComponent {
+  isfinishedLoading: boolean = false;
+
   phqQuestions: string[] = [
     'Poco interés o placer en hacer cosas.',
     'Sentirse deprimido(a) o sin esperanza.',
@@ -44,6 +46,9 @@ export class ViewPhqComponent {
             // Handle the answers as needed
             this.phqAnswers = answers;
           }
+          setTimeout(() => {
+            this.isfinishedLoading = true;
+          }, 200);
         },
         (error) => {
           console.error('Error retrieving PHQ-9 answers', error);

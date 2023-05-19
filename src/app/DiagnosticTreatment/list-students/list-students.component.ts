@@ -20,6 +20,7 @@ export class ListStudentsComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'email', 'status', 'result','info','recommendation','appointment','date'];
   dataSource: MatTableDataSource<Student>;
+  isfinishedLoading: boolean = false;
 
 
 
@@ -35,6 +36,10 @@ export class ListStudentsComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Student>(students);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        setTimeout(() => {
+          this.isfinishedLoading = true;
+        }, 200);
+
       },
       error => console.log(error)
     );
@@ -48,7 +53,7 @@ export class ListStudentsComponent implements OnInit {
         console.log(`Fetched student with ID: ${studentId}`, student);
         const dialogRef = this.dialog.open(ResultsInfoComponent, {
           width: '70%',
-          height:'800px',
+          height:'80%',
           data: { student }
         });
       },

@@ -28,6 +28,8 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   displayNameInput: HTMLInputElement;
+  isfinishedLoading: boolean = false;
+
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -50,6 +52,9 @@ export class QuestionBankComponent implements OnInit, AfterViewInit {
       console.log('Data retrieved from backend:', data.content);
       this.dataSource.data = data.content;
       console.log('DataSource: ', this.dataSource.data);
+      setTimeout(() => {
+        this.isfinishedLoading = true;
+      }, 200);
     });
   }
 

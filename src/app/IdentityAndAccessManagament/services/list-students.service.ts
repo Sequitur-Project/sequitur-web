@@ -29,7 +29,7 @@ export class ListStudentsService {
           email: student.email,
           status: student.results.length > 0 ? student.results[0].status : 'No hay resultado aun',
           result: student.results.length > 0 ? student.results[0].score : 'No hay resultado aun',
-          date: student.results.length > 0 ? student.results[0].createdAt : 'No hay fecha de resultado aun'
+          date: student.results.length > 0 ? student.results[0].createdAt : undefined,
         } as unknown as Student));
       })
     );

@@ -1,24 +1,43 @@
 <body>
+  <div id="whiter" *ngIf="!isfinishedLoading"></div>
+  <div id="content" *ngIf="!isfinishedLoading">
+      <div id="centeru">
+          <div class="donut"></div>
+      </div>
+  </div>
+
+  <div id="content" *ngIf="isfinishedLoading">  
   <div class="calendar">
     <div class="week" *ngFor="let week of getBinnacleEntriesPerWeek()">
       <div class="day" *ngFor="let day of week">
-        <h3 class="date">{{ day.date }}</h3>
-        <ul>
-          <ng-container *ngIf="day.entries.length > 0; else noEntries">
-            <li *ngFor="let entry of day.entries">
-              <p>El emoji que representa su ánimo es: {{ entry.emoji }}</p>
-              <p>El sentimiento que eligió de la lista es: {{ entry.feeling }}</p>
-              <p>La razón que escribió: {{ entry.reason }}</p>
-              <p>PD: {{ entry.extraText }}</p>
-            </li>
-          </ng-container>
-        </ul>
+
+        <mat-grid-list cols="7" rowHeight="100px" gutterSize="10" class="bottomm">
+          <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'#16B268'" class="rounded-grid">
+            <div class="bigday">{{ day.date.substr(-2) }}</div>
+            <div class="bigmonth">{{ day.date.slice(0, -3).substr(-2) }}</div>
+            <div class="bigyear">{{ day.date.slice(0, -6) }}</div>
+          </mat-grid-tile>     
+          <mat-grid-tile [colspan]="6" [rowspan]="2" [style.background]="'transparent'" class="rounded-grid">
+             <div class="info" *ngIf="day.entries.length > 0; else noEntries">
+            <div *ngFor="let entry of day.entries">
+              <p> <i class="fa fa-user-circle fa-2x" ></i> El emoji que representa su ánimo es: {{ entry.emoji }}</p>
+              <p> <i class="fa fa-lightbulb-o fa-2x" ></i> El sentimiento que eligió de la lista es: {{ entry.feeling }}</p>
+              <p> <i class="fa fa-question fa-2x" ></i> La razón que escribió: {{ entry.reason }}</p>
+              <p> <i class="fa fa-plus fa-2x" ></i> PD: {{ entry.extraText }}</p>
+            </div>          
+          </div>
+          </mat-grid-tile>
+        </mat-grid-list>          
+       
+         
+        
       </div>
     </div>
   </div>
   <ng-template #noEntries>
     <h1>NO HAY REGISTRO</h1>
   </ng-template>
+</div>
 </body>
 
 

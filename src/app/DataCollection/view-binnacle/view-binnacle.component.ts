@@ -13,6 +13,8 @@ import { Binnacle } from '../models/binnacle';
 export class ViewBinnacleComponent {
   binnacleEntries: BinnacleEntry[] = [];
   binnacle: Binnacle = new Binnacle();
+  isfinishedLoading: boolean = false;
+
 
   constructor(
     private binnacleService: BinnacleService,
@@ -28,6 +30,9 @@ export class ViewBinnacleComponent {
           (binnacle: Binnacle) => {
             this.binnacle = binnacle;
             console.log(this.binnacle);
+            setTimeout(() => {
+              this.isfinishedLoading = true;
+            }, 300);
           },
           (error: any) => {
             console.error('Error retrieving binnacle', error);

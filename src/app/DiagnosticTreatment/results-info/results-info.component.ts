@@ -53,8 +53,8 @@ export class ResultsInfoComponent  {
   viewBinnacleInfoDialog(): void {
     // Open the second dialog using MatDialog
     const dialogRef = this.dialog.open(ViewBinnacleComponent, {
-      width: '70%',
-      height: '900px',
+      width: '70wh',
+      height: '80vh',
       data: { student: this.student }
     });
 
@@ -68,8 +68,8 @@ export class ResultsInfoComponent  {
   viewPhqInfoDialog(): void {
     // Open the second dialog using MatDialog
     const dialogRef = this.dialog.open(ViewPhqComponent, {
-      width: '70%',
-      height: '900px',
+      width: '70wh',
+      height: '80vh',
       data: { student: this.student }
     });
 

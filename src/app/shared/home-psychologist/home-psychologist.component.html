@@ -1,3 +1,96 @@
 <body>
+
+
+  <div id="content">
+     
+      
+
+      <mat-grid-list cols="7" rowHeight="80px" gutterSize="20" class="bottomm">            
+
+
+          <mat-grid-tile [colspan]="7" [rowspan]="2" [style.background]="'transparent'">
+              
+              <img src="assets/images/IMAGOTIPO.png" class="logo">
+
+              <div id="title">¡Bienvenido de vuelta a Sequitur, {{loggedInPsychologist?.firstName}}!</div>
+
+
+              <div id="carouselExample" class="carousel slide">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      
+                          <p>
+                            "El éxito en la vida no se mide por lo que logras sino por los obstáculos que superas"
+                          </p>                         
+          
+                    </div>
+                    <div class="carousel-item">
+                      
+                          <p>
+                            "Todo lo que necesitas para ser feliz se encuentra al otro lado de tus miedos"
+                          </p>
+                        
+                    </div>
+                    <div class="carousel-item">
+                      
+                          <p>
+                            "Si la montaña que subes parece cada vez más imponente es que la cima está cada vez más cerca"
+                          </p>
+                        
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+
+
+
+
+
+
+
+          </mat-grid-tile>    
+          <a routerLink="/results"><mat-grid-tile [colspan]="2" [rowspan]="2" class="rounded-grid button-5">
+              <div class="iconi"><i class="fa fa-pie-chart fa-2x"></i></div>
+              <div class="titles">Resultados</div>
+              <div class="descriptcion">Ver resultados de los estudiantes. </div>
+          </mat-grid-tile></a>
+          <mat-grid-tile [colspan]="3" [rowspan]="5" [style.background]="'transparent'" class="transparent-grid">
+              <img src="assets/images/manager.png" class="centerpic">
+          </mat-grid-tile>
+          <a routerLink="/appointments"><mat-grid-tile [colspan]="2" [rowspan]="2" class="rounded-grid button-5">
+              <div class="iconi"><i class="fa fa-calendar fa-2x" ></i></div>
+              <div class="titles">Citas</div>
+              <div class="descriptcion">Ver calendario de citas.</div>
+          </mat-grid-tile></a>
+          <a routerLink="/questionBank"><mat-grid-tile [colspan]="2" [rowspan]="2" class="rounded-grid button-5">
+              <div class="iconi"><i class="fa fa-list-alt fa-2x"></i></div>
+              <div class="titles">Banco de Preguntas</div>
+              <div class="descriptcion">Ver todos las preguntas. </div>
+          </mat-grid-tile></a>
+          
+      </mat-grid-list>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
   <app-sidebar></app-sidebar>
 </body>

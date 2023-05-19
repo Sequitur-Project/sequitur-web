@@ -37,7 +37,7 @@ body {
 .form-control {
   display: block;
   width: 100%;
-  height: 60px;
+  height: 120px;
   padding: 12px;
   font-size: 16px;
   line-height: 1.5;
@@ -55,6 +55,7 @@ body {
 .dialog-actions {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 30px;
 }
 
 .btn {
@@ -95,4 +96,17 @@ body {
   margin-right: -33px;
   width: 105%;
   margin-top: -23px;
+}
+#line2{
+  border: 20px solid #147446;
+  margin-left: -24px;
+
+  width: 100%;
+  position: absolute;
+  top: 443px;
+
+}
+#green{
+  background-color: #147446;
+  width: 101%;
 }

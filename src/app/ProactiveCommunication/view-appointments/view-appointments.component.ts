@@ -12,6 +12,8 @@ import { AppointmentService } from '../services/appointment.service';
 })
 export class ViewAppointmentsComponent implements OnInit {
   calendarOptions: CalendarOptions; // Define the calendar options
+  isfinishedLoading: boolean = true;
+
   constructor(private psychologistService: PsychologistService, private appointmentsService: AppointmentService) { }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class ViewAppointmentsComponent implements OnInit {
 
             }))
           };
+          
         }, error => {
           console.error('Error loading appointments:', error);
         });
