@@ -1,0 +1,146 @@
+<body style="background-color: white;">
+
+
+  <div id="content">
+
+  <mat-grid-list cols="7" rowHeight="100px" gutterSize="20">
+    
+    <mat-grid-tile [colspan]="4" [rowspan]="3" [style.background]="'#fafafa'" class="rounded-grid">
+      <mat-grid-tile-header [style.background]="'transparent'">
+        <div class="w-100 subtitulo">DETALLES PERSONALES</div>
+    </mat-grid-tile-header>
+       
+    
+
+    <div class="student-info" style="margin-left: 20px;">
+      <img *ngIf="student.genre === 'Masculino'" src="assets/images/man.png" alt="{{ student.firstName }} {{ student.lastName }}" class="student-photo">
+      <img *ngIf="student.genre === 'Femenino'" src="assets/images/woman.png" alt="{{ student.firstName}} {{ student.lastName }}" class="student-photo">
+      <div class="student-details">
+        <label>Nombre: <b>{{ student.firstName }} {{ student.lastName }}</b></label>        
+        <label >Correo: <b>{{ student.email }}</b></label>
+        <label>Genero: <b>{{ student.genre }}</b></label>
+        <label>Fecha de Nacimiento: <b>{{ student.birthDate | date }}</b></label>
+        <label>Celular: <b>{{ student.telephone }}</b></label>
+    </div></div>
+
+
+
+
+
+        
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="7" [style.background]="'#fafafa'" class="rounded-grid">
+        
+      
+
+
+
+      <div class="resultados">
+          <div class="centerin">
+            <mat-grid-tile-header [style.background]="'transparent'">
+              <div class="w-100 subtitulo">NIVEL DE DEPRESIÓN</div>
+          </mat-grid-tile-header>
+             
+              <div class="card-text" >
+                <svg width="200" height="200">
+                  <circle cx="100" cy="100" r="80" stroke="#ccc" stroke-width="10" fill="none"></circle>
+                  <path [attr.d]="gaugePath" [attr.fill]="gaugeFill"></path>
+                  <text x="100" y="140" text-anchor="middle">{{ student.results[0].score }}/27</text>
+                </svg>
+              </div>
+
+            <div class="student-deptails">
+                <label>Estado:  <b>{{ student.results[0].status }}</b></label>        
+                <label >Fecha de Resultado: <b>{{ student.results[0].createdAt | shortDate }}</b></label>      
+                <label style="color:white;">•</label>
+            </div>
+
+          </div>         
+     
+          <div class="card-body">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Depresión Mínima
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Puntaje del 0-4. Sugiere que el encuestado podría no necesitar ningun tipo de tratamiento para la depresión</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Depresión Leve
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Puntaje del 5-9. Sugiere que el psicólogo debe usar su juicio clínico para empezar el tratamiento basandose en la duración y gravedad de los síntomas.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Depresión Moderada
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body"> Puntaje del 10-14. Similar a la depresión leve, sugiere que el psicólogo debe usar su juicio clínico para empezar el tratamiento basandose en la duración y gravedad de los síntomas.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    Depresión Moderadamente Severa
+                  </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Puntaje del 15-19. Sugiere que se debe garantizar un tratamiento para la depresión basada en medicamentos, terapias o una combinación de ambas</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                    Depresión Severa
+                  </button>
+                </h2>
+                <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Puntaje del 20-27. Sugiere que se debe garantizar un tratamiento para la depresión basada en medicamentos, terapias o una combinación de ambas. Si las respuestas al tratamiento son deficientes, el especialista en salud mental realiza un asesoramiento mayor. </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+      
+        </div>
+
+
+
+
+
+      
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="1" class="rounded-gridy" (click)="viewBinnacleInfoDialog()">
+        
+        
+        BITÁCORA
+
+        
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="1" class="rounded-gridy" (click)="viewPhqInfoDialog()">
+       
+        
+        RESULTADOS PHQ-9
+
+      
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+
+</div>
+
+</body>
+
+
