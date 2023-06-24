@@ -1,0 +1,30 @@
+
+<body>
+  <app-sidebar></app-sidebar>
+  <div class="container rounded bg-white mt-3 mb-3">
+    <div class="row">
+
+        <div class="col-md-6 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right" style="color: #16B268; font-size: 18px;">Opciones de Perfil</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Nombres</label><input type="text" class="form-control" placeholder="Nombres" [(ngModel)]="psychologistName"></div>
+                    <div class="col-md-6"><label class="labels">Apellidos</label><input type="text" class="form-control" [(ngModel)]="psychologistLastName" placeholder="Apellidos"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Telefono</label><input type="text" class="form-control" placeholder="Numero de Telefono" [(ngModel)]="psychologistPhone"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Correo Electronico" [(ngModel)]="psychologistEmail"></div>
+                    <div class="col-md-12"><label class="labels">Contraseña</label><input type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="psychologistPassword"></div>
+                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="password" class="form-control" placeholder="Nueva Contraseña" [(ngModel)]="newPassword"></div>
+                    <div class="col-md-12"><label class="labels">Confirmar Nueva Contraseña</label><input type="password" class="form-control" placeholder="Confirmar Nueva Contraseña" [(ngModel)]="confirmNewPassword"></div>
+                </div>
+
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" (click)="updateManagerProfile()">Guardar Cambios del Perfil</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+

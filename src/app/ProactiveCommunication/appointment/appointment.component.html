@@ -1,0 +1,23 @@
+<body>
+  <h2 style="text-align: center; font-size: 30px; word-spacing: 3px;">Generar Cita</h2>
+  <form [formGroup]="appointmentForm" class="appointment-form">
+    <mat-form-field class="form-field">
+      <input matInput [matDatepicker]="appointmentDatepicker" placeholder="Dia de la cita" formControlName="appointmentDate" class="form-input">
+      <mat-datepicker-toggle matSuffix [for]="appointmentDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #appointmentDatepicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+        <input matInput formControlName="appointmentTime" placeholder="Hora de la cita" class="form-input">
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput formControlName="appointmentLocation" placeholder="Lugar de la cita" class="form-input">
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput formControlName="reason" placeholder="Razon" class="form-input">
+    </mat-form-field>
+  </form>
+  <div class="button-container">
+    <button mat-raised-button  (click)="onSave()" style="background-color: #147446;">Guardar</button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </div>
+</body>

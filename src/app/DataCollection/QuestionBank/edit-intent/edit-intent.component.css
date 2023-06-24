@@ -1,0 +1,90 @@
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 0 0 20px;
+    color: #333;
+  }
+
+  mat-dialog-content {
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  button:active {
+    transform: translateY(1px);
+  }
+
+  button[mat-button] {
+    margin-left: 10px;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+
+  button[mat-button]:hover {
+    background-color: #e6e6e6;
+  }
+
+  button[mat-button]:active {
+    background-color: #d9d9d9;
+  }
+
+  button[color="primary"] {
+    background-color: #147446;
+    color: #fff;
+  }
+
+  button[color="primary"]:hover {
+    background-color: #16B268;
+  }
+
+  button[color="primary"]:active {
+    background-color: #005cbf;
+  }
+
+  @media only screen and (max-width: 480px) {
+    input {
+      font-size: 14px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+  }
+

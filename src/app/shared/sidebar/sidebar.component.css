@@ -24,7 +24,7 @@ overflow:visible;
 }
 
 .main-menu {
-background:#1E2772;
+background:#147446;
 border-right:1px solid #e5e5e5;
 position:absolute;
 top:0;
@@ -53,7 +53,7 @@ position:relative;
 display:table;
 border-collapse:collapse;
 border-spacing:0;
-color:#A4A6B3;
+color:#fff;
  font-family: arial;
 font-size: 14px;
 text-decoration:none;
@@ -116,7 +116,7 @@ padding:0;
 }
 .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
 color:#fff;
-background-color:#3E81E6;
+background-color:#16B268;
 }
 
 @font-face {
@@ -125,28 +125,38 @@ background-color:#3E81E6;
   font-weight: 300;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
-#icons {
-width: 60px;
-height: 36px;
-font-size:35px;
-color:#FFFFFF;
-
-}
 
 #divide-line{
   border: 1.5px solid #A4A6B3;
 }
-#user-name{
-  color:#A4A6B3;
-  margin-left: 65px;
 
-}
-#user-tag{
-  color:#A4A6B3;
-  position: relative;
-
-}
-#profile{
+#profile {
+  display: flex;
   align-items: center;
+  margin-top: 11px;
+}
+
+#profile #icons {
+width: 60px;
+height: 36px;
+font-size:35px;
+color:#FFFFFF;
+}
+
+#user-info {
+  display: inline-block;
+  margin-left: 20px;
+  text-align: left;
+}
+
+#user-name {
+  font-size: 16px;
+  color: #fff;
+}
+
+#user-tag {
+  font-size: 13px;
+  color: #EBEDF7;
 
 }
+

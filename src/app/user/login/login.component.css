@@ -1,5 +1,5 @@
 #blue-screen{
-  background-color: #3E81E6;
+  background-color: #16B268;
   width: 60%;
   height: 100vh;
   position: absolute;
@@ -9,7 +9,7 @@
 }
 #white-screen{
   background-color: #FFFFFF;
-  margin-left: 1144px;
+  right:0;
   top: 0;
   position: absolute;
   width: 40%;
@@ -47,17 +47,17 @@
   margin-left: -50px;
 }
 #password-question{
-  color: #1E2772;
+  color: #147446;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 14.14px;
   text-decoration: underline;
-  margin-left: 360px;
+  margin-left: 340px;
 }
 
 #login-btn{
   margin-top: 40px;
-  background-color: #1E2772;
+  background-color: #147446;
   color: #fFFFFF;
   border: none;
   width: 100%;
@@ -69,14 +69,43 @@
 #singup-btn{
   margin-top: 40px;
   background-color: #FFFFFF;
-  color: #1E2772;
-  border: 1px solid #1E2772;
+  color: #147446;
+  border: 1px solid #147446;
   width: 100%;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   font-size: 16.6px;
 }
 #singup-link{
-  color: #1E2772;
+  color: #147446;
   text-decoration: none;
 }
+
+select {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #555555;
+  background-color: #EEEEEE;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+option {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #555555;
+  background-color: #EEEEEE;
+}
+.logo{
+  width: 300px;
+  position: absolute;
+  top: 100px;
+  left: 220px;
+}
+

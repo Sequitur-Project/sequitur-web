@@ -1,0 +1,39 @@
+.dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.dialog-content {
+  margin-bottom: 1rem;
+}
+
+.dialog-content p {
+  margin-bottom: 0.5rem;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dialog-actions button {
+  margin-left: 1rem;
+}
+
+.cancel-button {
+  color: #666;
+}
+
+.save-button {
+  background-color: #147446;
+  color: white;
+}
+
+input{
+  width: 80%;
+}
