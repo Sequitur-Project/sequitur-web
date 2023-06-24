@@ -1,0 +1,94 @@
+<body>
+  <div id="whiter" *ngIf="!isfinishedLoading"></div>
+  <div id="content" *ngIf="!isfinishedLoading">
+      <div id="centeru">
+          <div class="donut"></div>
+      </div>
+  </div>
+
+  <div id="content" *ngIf="isfinishedLoading">
+    
+    <mat-grid-list cols="7" rowHeight="100px" gutterSize="20" class="bottomm">
+      <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="'transparent'" class="left-aligned-tile">
+        <div class="headere">
+          <div class="titulos">
+              <h2>Resultados.</h2>
+          </div>
+          <div class="descripcion">Lista de resultados de los estudiantes registrados.</div>
+      </div>
+    </mat-grid-tile>     
+    </mat-grid-list>
+    
+    <div class="rounded-grid">
+      <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let student"> {{student.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let student"> {{student.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let student"> {{student.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="result">
+          <th mat-header-cell *matHeaderCellDef> Resultado PHQ-9 </th>
+          <td mat-cell *matCellDef="let student"> {{student.result}}/27 </td>
+        </ng-container>
+
+        <ng-container matColumnDef="info">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let student">
+            <button (click)="showResultsDialog(student.id)" style="background-color: #147446; color: white; padding: 10px; border: none; border-radius: 10px;">
+              Más información
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="recommendation">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let student">
+            <button (click)="openRecommendationDialog(student.id)" style="background-color: #147446; color: white; padding: 10px; border: none; border-radius: 10px;">
+              Enviar Recomendaciones
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="appointment">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let student">
+            <button (click)="openCreateAppointmentDialog(student.id)" style="background-color: #147446; color: white; padding: 10px; border: none; border-radius: 10px;">
+              Generar Cita
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let student"> {{student.date| date:'medium'}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of students">
+      </mat-paginator>
+    </div>
+
+  </div>
+
+
+  <app-sidebar></app-sidebar>
+
+</body>
+
+

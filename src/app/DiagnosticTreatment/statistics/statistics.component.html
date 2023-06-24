@@ -1,0 +1,76 @@
+<body>
+    <div id="whiter" *ngIf="!isfinishedLoading"></div>
+    <div id="content" *ngIf="!isfinishedLoading">
+        <div id="centeru">
+            <div class="donut"></div>
+        </div>
+    </div>
+
+<div id="content" *ngIf="isfinishedLoading">
+
+  <mat-grid-list cols="6" rowHeight="100px" gutterSize="20">
+      <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="'transparent'" class="left-aligned-tile">
+
+   
+            <div class="calendario">
+
+                <button mat-icon-button (click)="openDatePicker(dp2)">
+                    <mat-icon>calendar_today</mat-icon>
+                  </button>
+
+          <mat-form-field>
+            <input matInput [matDatepicker]="dp2" [min]="sixMonthsAgo" [max]="today" placeholder="Select a Date" (click)="openDatePicker(dp2)">
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2 startView="multi-year" touchUi  (monthSelected)="closeDatePicker($event, dp2)" panelClass="example-month-picker"></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+          <div class="headere">
+              <div class="titulos">
+                  <h2>Estadísticas.</h2>
+              </div>
+              <div class="descripcion">{{universityName}}</div>
+          </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="2" [rowspan]="2" [style.background]="'#fafafa'" class="rounded-grid">
+          <ngx-charts-number-card [view]="[200, 180]" [results]="studentData" [scheme]="'forest'" >
+          </ngx-charts-number-card>
+          <mat-grid-tile-footer [style.background]="'transparent'"><div class="subsubtitulo">Total de estudiantes registrados.</div></mat-grid-tile-footer>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="2" [style.background]="'#fafafa'" class="rounded-grid">
+          <ngx-charts-number-card [view]="[200, 180]" [results]="psychologistData" [scheme]="'forest'">
+          </ngx-charts-number-card>
+          <mat-grid-tile-footer [style.background]="'transparent'"><div class="subsubtitulo">Total de psicólogos registrados.</div></mat-grid-tile-footer>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="5" [style.background]="'#fafafa'" class="rounded-grid">
+          <mat-grid-tile-header [style.background]="'transparent'">
+              <div class="w-100 subtitulo">Porcentaje de depresión detectadas</div>
+          </mat-grid-tile-header>
+          <ngx-charts-pie-grid [view]="[200, 500]" [scheme]="colorScheme" [results]="depressionData"
+              [tooltipDisabled]="true">
+          </ngx-charts-pie-grid>
+          <mat-grid-tile-footer [style.background]="'transparent'">
+              <div class="subsubtitulo">Porcentaje obtenido del total de estudiantes registrados.</div>
+          </mat-grid-tile-footer>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4" [rowspan]="4" [style.background]="'#fafafa'" class="rounded-grid">
+          <mat-grid-tile-header [style.background]="'transparent'">
+              <div class="w-100 subtitulo">Número de estudiantes por nivel de depresión</div>
+          </mat-grid-tile-header>
+          <ngx-charts-bar-horizontal [results]="depressionTypesData" [xAxisLabel]="'Número de Estudiantes'" [view]="[750, 300]"
+              [barPadding]="20" [scheme]="colorScheme" [yAxisLabel]="'Niveles de Depresión'" [legend]="true"
+              [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [showGridLines]="false"
+              [legendTitle]="''" [yAxis]="true" [gradient]="false" [xAxisTickFormatting]="xAxisFormat" style="font-size:14px;">
+          </ngx-charts-bar-horizontal>
+          <mat-grid-tile-footer [style.background]="'transparent'">
+              <div class="subsubtitulo">Números obtenidos del total de cuestionarios resueltos.</div>
+          </mat-grid-tile-footer>
+      </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+
+<app-sidebar></app-sidebar>
+
+</body>

@@ -6,41 +6,43 @@
     <div class="row">
       <div class="col">
         <label class="form-label">Nombres :</label>
-        <input type="text" class="form-control" aria-label="First name" placeholder="Ingresar nombres...">
+        <input type="text" class="form-control" aria-label="First name" placeholder="Ingresar nombres..." [(ngModel)]="firstName">
       </div>
       <div class="col">
         <label class="form-label">Apellidos :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar apellidos...">
+        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar apellidos..." [(ngModel)]="lastName">
       </div>
     </div>
     <div class="row">
       <div class="col">
         <label class="form-label">Correo :</label>
-        <input type="text" class="form-control" aria-label="First name" placeholder="info@xyz.com">
+        <input type="text" class="form-control" aria-label="Email" placeholder="info@xyz.com" [(ngModel)]="email" >
       </div>
       <div class="col">
         <label class="form-label">Confirmar Correo :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="info@xyz.com">
+        <input type="text" class="form-control" aria-label="Last name" placeholder="info@xyz.com" [(ngModel)]="confirmEmail" >
       </div>
     </div>
     <div class="row">
       <div class="col">
         <label class="form-label">Contraseña :</label>
-        <input type="text" class="form-control" aria-label="First name" placeholder="xxxxxxxxxxxx">
+        <input type="text" class="form-control" aria-label="Password" placeholder="xxxxxxxxxxxx" [(ngModel)]="password" >
       </div>
       <div class="col">
         <label class="form-label">Repetir contraseña :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="xxxxxxxxxxxxx">
+        <input type="text" class="form-control" aria-label="Last name" placeholder="xxxxxxxxxxxxx" [(ngModel)]="confirmPassword" >
       </div>
     </div>
     <div class="row">
       <div class="col">
         <label class="form-label">Teléfono :</label>
-        <input type="text" class="form-control" aria-label="First name" placeholder="+51 973429932">
+        <input type="text" class="form-control" aria-label="Telephone" placeholder="+51 973429932" [(ngModel)]="telephone">
       </div>
       <div class="col">
         <label class="form-label">Universidad :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="Nombre de universidad">
+        <select class="form-control" [(ngModel)]="universityId">
+          <option *ngFor="let university of universities" [value]="university.id">{{ university.name }}</option>
+        </select>
       </div>
     </div>
     <div class="row">
@@ -50,10 +52,12 @@
         </button>
       </div>
       <div class="col">
-        <button class="btn btn-primary" type="button" id="register-btn" routerLink="/results">Registrarse</button>
+        <button class="btn btn-primary" type="button" id="register-btn" (click)="onSubmit()">Registrarse</button>
       </div>
     </div>
-
+    <div class="row">
+      <button class="btn btn-primary" type="button" id="register-btn" routerLink="/register">Ir a Registro como Manager</button>
+    </div>
 
 
   </section>

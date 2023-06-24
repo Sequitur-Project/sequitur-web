@@ -1,0 +1,30 @@
+<body>
+  <div id="whiter" *ngIf="!isfinishedLoading"></div>
+  <div id="content" *ngIf="!isfinishedLoading">
+      <div id="centeru">
+          <div class="donut"></div>
+      </div>
+  </div>
+
+  <div id="content" *ngIf="isfinishedLoading">  
+    
+    
+    <mat-grid-list cols="7" rowHeight="100px" gutterSize="20" class="bottomm">
+      <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="'transparent'" class="left-aligned-tile">
+        <div class="headere">
+          <div class="titulos">
+              <h2>Citas.</h2>
+          </div>
+          <div class="descripcion">Visualizar citas.</div>
+      </div>
+    </mat-grid-tile>     
+    </mat-grid-list>
+
+
+
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+  
+  <app-sidebar></app-sidebar>
+
+</body>

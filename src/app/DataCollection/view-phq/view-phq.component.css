@@ -1,0 +1,78 @@
+.phq-question {
+  margin-bottom: 20px;
+}
+
+.phq-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.phq-options button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.phq-options button.selected {
+  background-color: #16B268;
+  color: #fff;
+}
+
+.phq-options button:disabled {
+  cursor: not-allowed;
+}
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#content {  
+  width:70vw;
+  padding:30px;
+  background:transparent!important;
+}
+
+
+#whiter{
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width:100%;
+  height:100%;
+}
+
+#centeru{
+  position: fixed;
+  top:calc(50% - 100px);
+  left:50%;
+}
+
+.donut {
+  width: 50px;
+  height: 50px;
+  margin: 50px;
+  border-radius: 50%;
+  border: 0.3rem solid #16b26949;
+  border-top-color: #16B268;
+  -webkit-animation: 1.5s spin infinite linear;
+          animation: 1.5s spin infinite linear;
+}
+.donut.multi {
+  border-bottom-color: #16B268;
+}
+
+@-webkit-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

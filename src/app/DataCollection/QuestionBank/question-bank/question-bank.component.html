@@ -1,0 +1,124 @@
+<body>
+  <div id="whiter" *ngIf="!isfinishedLoading"></div>
+  <div id="content" *ngIf="!isfinishedLoading">
+      <div id="centeru">
+          <div class="donut"></div>
+      </div>
+  </div>
+
+  <div id="content" *ngIf="isfinishedLoading">
+    
+    
+    <mat-grid-list cols="7" rowHeight="100px" gutterSize="20" class="bottomm">
+      <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="'transparent'" class="left-aligned-tile">
+        <div class="headere">
+          <div class="titulos">
+              <h2>Banco de preguntas.</h2>
+          </div>
+          <div class="descripcion">Lista de preguntas para el chatbot.</div>
+      </div>
+    </mat-grid-tile>     
+    </mat-grid-list>
+
+
+
+    <div class="rounded-grid">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="displayName">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let intent"> {{intent.displayName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="trainingPhrases">
+          <th mat-header-cell *matHeaderCellDef>Frases Entrenadas</th>
+          <td mat-cell *matCellDef="let intent">
+            <ng-container *ngFor="let trainingPhrase of intent.trainingPhrases">
+              {{trainingPhrase.text}}<br>
+
+            </ng-container>
+
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="responses">
+          <th mat-header-cell *matHeaderCellDef>Respuestas Bot</th>
+          <td mat-cell *matCellDef="let intent">
+            <ng-container *ngFor="let response of intent.responses">
+              {{response.messageText}}<br>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef> Creado </th>
+          <td mat-cell *matCellDef="let intent"> {{intent.createdAt| date:'medium'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="trainingPhrase">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let intent">
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="addTrainingPhrase(intent)">Agregar Frase</button>
+              <button mat-menu-item (click)="editTrainingPhrase(intent, trainingPhrase)" *ngFor="let trainingPhrase of intent.trainingPhrases">Modificar Frase</button>
+              <button mat-menu-item (click)="deleteTrainingPhrase(intent, trainingPhrase)" *ngFor="let trainingPhrase of intent.trainingPhrases">Eliminar Frase</button>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>textsms</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="addResponse">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let intent">
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item class="menu-item" (click)="addResponse(intent)">Agregar Respuesta</button>
+              <button mat-menu-item class="menu-item" (click)="editResponse(intent, response)" *ngFor="let response of intent.responses">Modificar Respuesta</button>
+              <button mat-menu-item class="menu-item" (click)="deleteResponse(intent, response)" *ngFor="let response of intent.responses">Eliminar Respuesta</button>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>mobile_screen_share</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="editIntent">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let intent">
+            <button mat-icon-button (click)="edit(intent)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="deleteIntent">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let intent">
+            <button mat-icon-button (click)="deleteIntent(intent)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+      <div class="center-button">
+        <button class="add-intent" mat-raised-button  (click)="openDialog()" style="margin-bottom: 10px; background-color: #147446; width: 200px;">Añadir Intent</button>
+      </div>
+      <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)"></mat-paginator>
+
+
+
+    </div>
+
+
+    
+  </div>
+
+  <app-sidebar></app-sidebar>
+
+</body>

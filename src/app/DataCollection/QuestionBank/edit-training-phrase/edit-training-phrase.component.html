@@ -1,0 +1,11 @@
+<body>
+<h1 mat-dialog-title style="color: #333;">Editar Frase</h1>
+<div mat-dialog-content>
+    <input matInput [(ngModel)]="trainingPhrase.text" placeholder="Training Phrase" required>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSave()">Guardar</button>
+</div>
+</body>
+

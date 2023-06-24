@@ -1,0 +1,18 @@
+
+<body>
+  <h2 class="dialog-title">Entrenar Respuesta</h2>
+  <div class="dialog-content">
+    <p>Una respuesta es el texto que el chatbot reproducirá en la conversación con un estudiante, comparando el mensaje de este con sus frases entrenadas.</p>
+    <p>A continuación, ingrese la respuesta que dará el chatbot:</p>
+      <mat-form-field class="form-field">
+        <mat-label>Respuesta</mat-label>
+        <input matInput [(ngModel)]="response.messageText" placeholder="Respuesta">
+      </mat-form-field>
+  </div>
+  <div class="dialog-actions">
+    <button mat-button class="cancel-button" (click)="dialogRef.close()">Cancelar</button>
+    <button mat-button class="save-button" (click)="onSave()" cdkFocusInitial>Guardar</button>
+  </div>
+</body>
+
+

@@ -1,0 +1,29 @@
+<body>
+
+  <div id="whiter" *ngIf="!isfinishedLoading"></div>
+  <div id="content" *ngIf="!isfinishedLoading">
+      <div id="centeru">
+          <div class="donut"></div>
+      </div>
+  </div>
+
+  <div id="content" *ngIf="isfinishedLoading">  
+  <h2>Preguntas PHQ-9</h2>
+  <div *ngFor="let question of phqQuestions; let i = index" class="phq-question">
+    {{ i + 1 }}. {{ question }}
+    <div class="phq-options">
+      <button
+        *ngFor="let option of phqOptions; let j = index"
+        [class.selected]="isSelectedAnswer(i, j)"
+        [disabled]="isAnswered(i)"
+        (click)="selectAnswer(i, j)"
+      >
+        {{ option }}
+      </button>
+    </div>
+  </div>
+  </div>
+</body>
+
+
+

@@ -1,0 +1,95 @@
+<div id="blue-screen">
+</div>
+<div id="white-screen">
+  <section id="formulary">
+    <span id="register-title"> REGÍSTRATE </span>
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Nombres :</label>
+        <input type="text" class="form-control" aria-label="First name" placeholder="Ingresar nombres..." [(ngModel)]="manager.firstName">
+      </div>
+      <div class="col">
+        <label class="form-label">Apellidos :</label>
+        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar apellidos..." [(ngModel)]="manager.lastName">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Correo :</label>
+        <input type="text" class="form-control" aria-label="Email" placeholder="info@xyz.com" [(ngModel)]="manager.email" >
+      </div>
+      <div class="col">
+        <label class="form-label">Confirmar Correo :</label>
+        <input type="text" class="form-control" aria-label="Last name" placeholder="info@xyz.com" [(ngModel)]="confirmEmail" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Contraseña :</label>
+        <input type="text" class="form-control" aria-label="Password" placeholder="xxxxxxxxxxxx" [(ngModel)]="manager.password" >
+      </div>
+      <div class="col">
+        <label class="form-label">Repetir contraseña :</label>
+        <input type="text" class="form-control" aria-label="Last name" placeholder="xxxxxxxxxxxxx" [(ngModel)]="confirmPassword" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Teléfono :</label>
+        <input type="text" class="form-control" aria-label="Telephone" placeholder="+51 973429932" [(ngModel)]="manager.telephone">
+      </div>
+
+      <hr>
+      <h2>Datos de la Universidad</h2>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Nombre : </label>
+        <input type="text" class="form-control" aria-label="First name" placeholder="Ingresar nombre..." [(ngModel)]="university.name">
+      </div>
+      <div class="col">
+        <label class="form-label">Pais :</label>
+        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar pais..." [(ngModel)]="university.country">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Ciudad :</label>
+        <input type="text" class="form-control" aria-label="Email" placeholder="Ingresar ciudad..." [(ngModel)]="university.city" >
+      </div>
+      <div class="col">
+        <label class="form-label">Direccion :</label>
+        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar direccion..." [(ngModel)]="university.address" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Codigo Zip :</label>
+        <input type="text" class="form-control" aria-label="Password" placeholder="Ingresar zip..." [(ngModel)]="university.zipCode" >
+      </div>
+      <div class="col">
+        <label class="form-label">RUC :</label>
+        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar RUC..." [(ngModel)]="university.ruc" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-primary" type="button" id="account-btn">
+          <a href="" id="singup-link" routerLink=""> Ya tengo cuenta </a>
+        </button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary" type="button" id="register-btn" (click)="onSubmit()" routerLink="">Registrarse</button>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" type="button" id="register-btn" routerLink="/register/2">Ir a Registro como Psicólogo</button>
+    </div>
+
+
+
+  </section>
+
+
+<router-outlet></router-outlet>
