@@ -11,8 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class ListStudentsService {
 
-  private apiUrl = 'https://back-sequitur-production.up.railway.app/api/students';
-  private universityUrl = 'https://back-sequitur-production.up.railway.app/api';
+  private apiUrl = 'https://sequitur-backend-2025-production.up.railway.app/api/students';
+  private universityUrl = 'https://sequitur-backend-2025-production.up.railway.app/api';
 
   constructor(private http: HttpClient) { }
 

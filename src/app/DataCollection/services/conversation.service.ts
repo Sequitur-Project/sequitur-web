@@ -8,7 +8,7 @@ import { ConversationResource } from "../models/conversation-resource";
   providedIn: 'root'
 })
 export class ConversationService {
-  private apiUrl = 'https://back-sequitur-production.up.railway.app/api';
+  private apiUrl = 'https://sequitur-backend-2025-production.up.railway.app/api';
 
   constructor(private http: HttpClient) {}
 

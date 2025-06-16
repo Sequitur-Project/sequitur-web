@@ -21,7 +21,7 @@ export class SubscriptionInfoComponent implements OnInit {
   constructor(private subscriptionService: SubscriptionService, private dialog: MatDialog, private managerService: ManagerService) {}
 
   ngOnInit(): void {
-    const subscriptionId = "1"; // or any other id you want to retrieve
+    const subscriptionId = "1"; 
   this.subscriptionService.getSubscription(subscriptionId).subscribe(
     (subscription: SubscriptionModel) => {
       this.subscription = subscription;
@@ -34,7 +34,7 @@ export class SubscriptionInfoComponent implements OnInit {
     this.checkSubscriptionStatus();
   }
   checkSubscriptionStatus() {
-    const managerId = this.managerService.getLoggedInManager()?.id; // Replace with the actual manager ID
+    const managerId = this.managerService.getLoggedInManager()?.id; 
     if (managerId) {
       this.subscriptionService.isSubscribed(managerId).subscribe(status => {
         if (status) {

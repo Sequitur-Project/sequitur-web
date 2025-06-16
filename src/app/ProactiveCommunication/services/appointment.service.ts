@@ -9,7 +9,7 @@ import { AppointmentResource } from "../models/appointment-resource";
 })
 export class AppointmentService {
 
-  private baseUrl = 'https://back-sequitur-production.up.railway.app/api';
+  private baseUrl = 'https://sequitur-backend-2025-production.up.railway.app/api';
   constructor(private http: HttpClient) {}
 
   createAppointment(psychologistId: string, studentId: string, appointment: Appointment): Observable<Appointment> {

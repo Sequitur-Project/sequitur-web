@@ -81,7 +81,6 @@ export class ListStudentsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // handle the result after the dialog is closed
     });
   }
 

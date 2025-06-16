@@ -14,6 +14,7 @@ export class ViewBinnacleComponent {
   binnacleEntries: BinnacleEntry[] = [];
   binnacle: Binnacle = new Binnacle();
   isfinishedLoading: boolean = false;
+  binnacleNotFound: boolean = false;
 
 
   constructor(
@@ -22,26 +23,38 @@ export class ViewBinnacleComponent {
   ) { }
 
   ngOnInit(): void {
-    if (this.data.student && this.data.student.id) {
-      const studentId = this.data.student.id;
+  if (this.data.student && this.data.student.id) {
+    const studentId = this.data.student.id;
 
-      this.binnacleService.getBinnacleByStudentId(studentId)
-        .subscribe(
-          (binnacle: Binnacle) => {
-            this.binnacle = binnacle;
-            console.log(this.binnacle);
-            setTimeout(() => {
-              this.isfinishedLoading = true;
-            }, 300);
-          },
-          (error: any) => {
-            console.error('Error retrieving binnacle', error);
+    this.binnacleService.getBinnacleByStudentId(studentId)
+      .subscribe(
+        (binnacle: Binnacle) => {
+          this.binnacle = binnacle;
+          this.binnacleNotFound = false;
+          setTimeout(() => {
+            this.isfinishedLoading = true;
+          }, 300);
+        },
+        (error: any) => {
+          console.error('Error retrieving binnacle', error);
+          
+          if (error.status === 404) {
+            this.binnacleNotFound = true;
           }
-        );
-    } else {
-      console.error('Invalid student data');
-    }
+
+          // IMPORTANTE: pase lo que pase, termina el loading
+          setTimeout(() => {
+            this.isfinishedLoading = true;
+          }, 300);
+        }
+      );
+  } else {
+    console.error('Invalid student data');
+    this.binnacleNotFound = true;
+    this.isfinishedLoading = true;
   }
+}
+
 
   getBinnacleEntriesPerDay(): { date: string, entries: BinnacleEntry[] }[] {
     const entriesPerDay: { date: string, entries: BinnacleEntry[] }[] = [];
@@ -50,7 +63,6 @@ export class ViewBinnacleComponent {
       return entriesPerDay;
     }
 
-    // Group binnacle entries by date
     this.binnacle.binnacleEntries.forEach((entry: BinnacleEntry) => {
       let entryDate: string;
       if (typeof entry.createdAt === 'string') {
@@ -59,14 +71,11 @@ export class ViewBinnacleComponent {
         entryDate = entry.createdAt.toISOString().split('T')[0];
       }
 
-      // Check if entriesPerDay already contains entries for the date
       const index = entriesPerDay.findIndex((day) => day.date === entryDate);
 
       if (index !== -1) {
-        // Add the entry to existing entries for the date
         entriesPerDay[index].entries.push(entry);
       } else {
-        // Create a new entry group for the date
         entriesPerDay.push({ date: entryDate, entries: [entry] });
       }
     });
@@ -76,8 +85,6 @@ export class ViewBinnacleComponent {
 
   getBinnacleEntriesPerWeek(): { date: string, entries: BinnacleEntry[] }[][] {
     const entriesPerDay = this.getBinnacleEntriesPerDay();
-
-    // Group entries by week
     const entriesPerWeek: { date: string, entries: BinnacleEntry[] }[][] = [];
 
     entriesPerDay.forEach((day) => {

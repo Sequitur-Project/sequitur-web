@@ -1,66 +1,113 @@
-<div id="blue-screen">
-</div>
+
+<div id="blue-screen"></div>
 <div id="white-screen">
   <section id="formulary">
     <span id="register-title"> REGÍSTRATE </span>
+
+
     <div class="row">
       <div class="col">
-        <label class="form-label">Nombres :</label>
-        <input type="text" class="form-control" aria-label="First name" placeholder="Ingresar nombres..." [(ngModel)]="firstName">
+        <div class="form-group">
+          <label class="form-label">Nombres :</label>
+          <input type="text" class="form-control" placeholder="Ingresar nombres..." [(ngModel)]="firstName" [ngClass]="{'invalid': formSubmitted && !firstName.trim()}">
+          <span class="error-message" *ngIf="formSubmitted && !firstName.trim()">Campo obligatorio.</span>
+        </div>
       </div>
+
       <div class="col">
-        <label class="form-label">Apellidos :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar apellidos..." [(ngModel)]="lastName">
+        <div class="form-group">
+          <label class="form-label">Apellidos :</label>
+          <input type="text" class="form-control" placeholder="Ingresar apellidos..." [(ngModel)]="lastName" [ngClass]="{'invalid': formSubmitted && !lastName.trim()}">
+          <span class="error-message" *ngIf="formSubmitted && !lastName.trim()">Campo obligatorio.</span>
+        </div>
       </div>
     </div>
+
+
     <div class="row">
       <div class="col">
-        <label class="form-label">Correo :</label>
-        <input type="text" class="form-control" aria-label="Email" placeholder="info@xyz.com" [(ngModel)]="email" >
+        <div class="form-group">
+          <label class="form-label">Correo :</label>
+          <input type="text" class="form-control" placeholder="info@xyz.com" [(ngModel)]="email"
+            [ngClass]="{'invalid': formSubmitted && (!email.trim() || !isEmailValid(email))}">
+          <span class="error-message" *ngIf="formSubmitted && !email.trim()">Campo obligatorio.</span>
+          <span class="error-message" *ngIf="formSubmitted && email.trim() && !isEmailValid(email)">Correo inválido.</span>
+        </div>
       </div>
+
       <div class="col">
-        <label class="form-label">Confirmar Correo :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="info@xyz.com" [(ngModel)]="confirmEmail" >
+        <div class="form-group">
+          <label class="form-label">Confirmar Correo :</label>
+          <input type="text" class="form-control" placeholder="info@xyz.com" [(ngModel)]="confirmEmail"
+            [ngClass]="{'invalid': formSubmitted && (!confirmEmail.trim() || confirmEmail.trim() !== email.trim())}">
+          <span class="error-message" *ngIf="formSubmitted && !confirmEmail.trim()">Campo obligatorio.</span>
+          <span class="error-message" *ngIf="formSubmitted && confirmEmail.trim() && confirmEmail.trim() !== email.trim()">Los correos no coinciden.</span>
+        </div>
       </div>
     </div>
+
+
     <div class="row">
       <div class="col">
-        <label class="form-label">Contraseña :</label>
-        <input type="text" class="form-control" aria-label="Password" placeholder="xxxxxxxxxxxx" [(ngModel)]="password" >
+        <div class="form-group">
+          <label class="form-label">Contraseña :</label>
+          <input type="password" class="form-control" placeholder="xxxxxxxxxxxx" [(ngModel)]="password"
+            [ngClass]="{'invalid': formSubmitted && (!password || password.length < 6)}">
+          <span class="error-message" *ngIf="formSubmitted && !password">Campo obligatorio.</span>
+          <span class="error-message" *ngIf="formSubmitted && password && password.length < 6">Mínimo 6 caracteres.</span>
+        </div>
       </div>
+
       <div class="col">
-        <label class="form-label">Repetir contraseña :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="xxxxxxxxxxxxx" [(ngModel)]="confirmPassword" >
+        <div class="form-group">
+          <label class="form-label">Repetir contraseña :</label>
+          <input type="password" class="form-control" placeholder="xxxxxxxxxxxx" [(ngModel)]="confirmPassword"
+            [ngClass]="{'invalid': formSubmitted && (!confirmPassword || confirmPassword !== password)}">
+          <span class="error-message" *ngIf="formSubmitted && !confirmPassword">Campo obligatorio.</span>
+          <span class="error-message" *ngIf="formSubmitted && confirmPassword && confirmPassword !== password">Las contraseñas no coinciden.</span>
+        </div>
       </div>
     </div>
+
+
     <div class="row">
       <div class="col">
-        <label class="form-label">Teléfono :</label>
-        <input type="text" class="form-control" aria-label="Telephone" placeholder="+51 973429932" [(ngModel)]="telephone">
+        <div class="form-group">
+          <label class="form-label">Teléfono :</label>
+          <input type="text" class="form-control" placeholder="+51 973429932" [(ngModel)]="telephone"
+            [ngClass]="{'invalid': formSubmitted && (!telephone.trim() || !isPhoneValid(telephone))}">
+          <span class="error-message" *ngIf="formSubmitted && !telephone.trim()">Campo obligatorio.</span>
+          <span class="error-message" *ngIf="formSubmitted && telephone.trim() && !isPhoneValid(telephone)">Teléfono inválido.</span>
+        </div>
       </div>
+
       <div class="col">
-        <label class="form-label">Universidad :</label>
-        <select class="form-control" [(ngModel)]="universityId">
-          <option *ngFor="let university of universities" [value]="university.id">{{ university.name }}</option>
-        </select>
+        <div class="form-group">
+          <label class="form-label">Universidad :</label>
+          <select class="form-control" [(ngModel)]="universityId" [ngClass]="{'invalid': formSubmitted && !universityId}">
+            <option value="">Selecciona una universidad</option>
+            <option *ngFor="let university of universities" [value]="university.id">{{ university.name }}</option>
+          </select>
+          <span class="error-message" *ngIf="formSubmitted && !universityId">Campo obligatorio.</span>
+        </div>
       </div>
     </div>
+
+
     <div class="row">
       <div class="col">
         <button class="btn btn-primary" type="button" id="account-btn">
-          <a href="" id="singup-link" routerLink=""> Ya tengo cuenta </a>
+          <a id="singup-link" routerLink=""> Ya tengo cuenta </a>
         </button>
       </div>
       <div class="col">
         <button class="btn btn-primary" type="button" id="register-btn" (click)="onSubmit()">Registrarse</button>
       </div>
     </div>
+
     <div class="row">
       <button class="btn btn-primary" type="button" id="register-btn" routerLink="/register">Ir a Registro como Manager</button>
     </div>
-
-
   </section>
-
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>

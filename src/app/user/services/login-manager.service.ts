@@ -11,7 +11,7 @@ import { SaveManager } from "src/app/IdentityAndAccessManagament/models/save-man
   providedIn: 'root'
 })
 export class ManagerService {
-  private apiUrl = 'https://back-sequitur-production.up.railway.app/api'; // replace with your backend API URL
+  private apiUrl = 'https://sequitur-backend-2025-production.up.railway.app/api';
   private loggedInManager: Manager| undefined;
 
   constructor(private http: HttpClient) { }

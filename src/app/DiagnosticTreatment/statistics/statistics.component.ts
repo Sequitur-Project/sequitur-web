@@ -54,24 +54,11 @@ export class StatisticsComponent {
     group: ScaleType.Ordinal,
     domain: ['#449E51', '#275C2F', '#5EDB71', '#64E878', '#53C264'],
   };
-  depressionTypesData: any[] = [
-    // { name: 'Leve', value: 10 },
-    // { name: 'Minima', value: 2 },
-    // { name: 'Moderada', value: 25 },
-    // { name: 'Moderada Severa', value: 14 },
-    // { name: 'Severa', value: 5 },
-  ];
-  depressionData: any[] = [
-    // { name: 'Depresión', value: 72 },
-    // { name: 'No depresión', value: 28 },
-  ];
-  studentData: any[] = [
-    // { name: 'Estudiantes', value: 32 },
-  ];
-
-  psychologistData: any[] = [
-    // { name: 'Psicólogos', value: 10 },
-  ];
+  depressionTypesData: any[] = [];
+  depressionData: any[] = [];
+  studentData: any[] = [];
+  psychologistData: any[] = [];
+  
   xAxisFormat(val: any){
     if(val%1>0) return "";
     return val;
@@ -93,7 +80,6 @@ export class StatisticsComponent {
   }
 
   closeDatePicker(eventData: any, dp?:any) {
-    // get month and year from eventData and close datepicker, thus not allowing user to select date
     dp.close();    
   }
   

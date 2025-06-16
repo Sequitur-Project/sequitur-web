@@ -10,10 +10,9 @@ import { SavePsychologistResource } from "src/app/IdentityAndAccessManagament/mo
   providedIn: 'root'
 })
 export class PsychologistService {
-  private apiUrl = 'https://back-sequitur-production.up.railway.app/api'; // replace with your backend API URL
+  private apiUrl = 'https://sequitur-backend-2025-production.up.railway.app/api'; 
   private loggedInPsychologist: Psychologist| undefined;
   private selectedRole: string;
-  //for register manager
   private userInfo: SavePsychologistResource;
 
   constructor(private http: HttpClient) { }

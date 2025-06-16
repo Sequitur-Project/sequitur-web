@@ -12,7 +12,7 @@ import { Psychologist } from "../models/psychologist";
 })
 export class ListPsychologistsService {
 
-  private universityUrl = 'https://back-sequitur-production.up.railway.app/api';
+  private universityUrl = 'https://sequitur-backend-2025-production.up.railway.app/api';
 
   constructor(private http: HttpClient) { }
 

@@ -16,17 +16,19 @@ export class ResultsInfoComponent  {
   gaugePath: string = '';
   gaugeFill: string = '';
   isCollapsed: { [key: string]: boolean } = {};
+  hasResults: boolean = false;
 
   constructor(
     private dialogRef: MatDialogRef<ResultsInfoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { student: Student },
-    private dialog: MatDialog // Inject MatDialog service
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.student = this.data.student;
-    console.log(this.student);
+  this.student = this.data.student;
+  this.hasResults = this.student.results && this.student.results.length > 0;
 
+  if (this.hasResults) {
     const score = this.student.results[0].score;
     const angle = score * 360 / 27;
     const radius = 80;
@@ -36,8 +38,12 @@ export class ResultsInfoComponent  {
     const largeArcFlag = angle <= 180 ? 0 : 1;
 
     this.gaugePath = `M 100,20 A 80,80 0 ${largeArcFlag},1 ${x},${y} L 100,100 Z`;
-    this.gaugeFill = score >= 10 ?  '#f44336':'#00c853';
+    this.gaugeFill = score >= 10 ? '#f44336' : '#00c853';
+  } else {
+    console.warn('Este estudiante no tiene resultados.');
   }
+}
+
   get results(): ResultModel[] {
     return this.student.results;
   }
@@ -51,32 +57,26 @@ export class ResultsInfoComponent  {
   }
 
   viewBinnacleInfoDialog(): void {
-    // Open the second dialog using MatDialog
     const dialogRef = this.dialog.open(ViewBinnacleComponent, {
       width: '70wh',
       height: '80vh',
       data: { student: this.student }
     });
 
-    // Subscribe to the afterClosed event of the second dialog
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // Perform any actions after the second dialog is closed
     });
   }
 
   viewPhqInfoDialog(): void {
-    // Open the second dialog using MatDialog
     const dialogRef = this.dialog.open(ViewPhqComponent, {
       width: '70wh',
       height: '80vh',
       data: { student: this.student }
     });
 
-    // Subscribe to the afterClosed event of the second dialog
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // Perform any actions after the second dialog is closed
     });
   }
   }

@@ -1,29 +1,37 @@
 <body>
-
+  <!-- Loading Spinner -->
   <div id="whiter" *ngIf="!isfinishedLoading"></div>
   <div id="content" *ngIf="!isfinishedLoading">
-      <div id="centeru">
-          <div class="donut"></div>
-      </div>
-  </div>
-
-  <div id="content" *ngIf="isfinishedLoading">  
-  <h2>Preguntas PHQ-9</h2>
-  <div *ngFor="let question of phqQuestions; let i = index" class="phq-question">
-    {{ i + 1 }}. {{ question }}
-    <div class="phq-options">
-      <button
-        *ngFor="let option of phqOptions; let j = index"
-        [class.selected]="isSelectedAnswer(i, j)"
-        [disabled]="isAnswered(i)"
-        (click)="selectAnswer(i, j)"
-      >
-        {{ option }}
-      </button>
+    <div id="centeru">
+      <div class="donut"></div>
     </div>
   </div>
+
+  <!-- Cuando ya cargó pero NO HAY respuestas PHQ-9 -->
+  <div id="no-phq" *ngIf="isfinishedLoading && phqNotFound">
+    <div class="no-phq-message">
+      <div class="card-message">
+        <h2>Este estudiante aún no ha completado el cuestionario PHQ-9.</h2>
+        <p>Cuando lo haga, sus respuestas aparecerán aquí automáticamente.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cuando ya cargó y SÍ hay respuestas PHQ-9 -->
+  <div id="content" *ngIf="isfinishedLoading && !phqNotFound">  
+    <h2>Preguntas PHQ-9</h2>
+    <div *ngFor="let question of phqQuestions; let i = index" class="phq-question">
+      {{ i + 1 }}. {{ question }}
+      <div class="phq-options">
+        <button
+          *ngFor="let option of phqOptions; let j = index"
+          [class.selected]="isSelectedAnswer(i, j)"
+          [disabled]="isAnswered(i)"
+          (click)="selectAnswer(i, j)"
+        >
+          {{ option }}
+        </button>
+      </div>
+    </div>
   </div>
 </body>
-
-
-

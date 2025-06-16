@@ -47,10 +47,8 @@ export class PsychologistProfileComponent {
     if (psychologistId && universityId) {
       this.psychologistService.updatePsychologist(psychologistId,universityId, updateData)
         .subscribe(response => {
-          // handle the success response
           console.log('Psychologist updated successfully:', response);
           alert('El perfil ha sido actualizado exitosamente.');
-          // Update the manager object in session storage
         const psychologist = this.psychologistService.getLoggedInPsychologist();
         if (psychologist) {
           psychologist.firstName = updateData.firstName;

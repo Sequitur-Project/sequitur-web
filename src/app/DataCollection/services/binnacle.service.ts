@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class BinnacleService {
-  private apiUrl = 'https://back-sequitur-production.up.railway.app/api'; // Replace with your actual API URL
+  private apiUrl = 'https://sequitur-backend-2025-production.up.railway.app/api';
 
   constructor(private http: HttpClient) { }
 

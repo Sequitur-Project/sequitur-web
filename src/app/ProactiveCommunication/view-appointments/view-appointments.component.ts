@@ -12,7 +12,7 @@ import { AppointmentResource } from '../models/appointment-resource';
   styleUrls: ['./view-appointments.component.css']
 })
 export class ViewAppointmentsComponent implements OnInit {
-  calendarOptions: CalendarOptions; // Define the calendar options
+  calendarOptions: CalendarOptions;
   isfinishedLoading: boolean = true;
   appointmentsToday: AppointmentResource[];
 
@@ -22,10 +22,9 @@ export class ViewAppointmentsComponent implements OnInit {
     this.loadAppointments();
     this.loadTodaysAppointments();
     this.calendarOptions = {
-      // Configure the calendar options
       eventColor: '#16B268',
       initialView: 'dayGridMonth',
-      plugins: [dayGridPlugin], // Set the initial view (e.g., month)
+      plugins: [dayGridPlugin],
       events: [
 
       ]
@@ -39,7 +38,7 @@ export class ViewAppointmentsComponent implements OnInit {
         .subscribe(appointments => {
           console.log('Appointments:', appointments);
           this.calendarOptions = {
-            // Configure the calendar options
+            
             events: appointments.map(appointment => ({
               title: 'Cita '+ appointment.appointmentTime,
               start: new Date(appointment.appointmentDate).toISOString()
@@ -71,7 +70,7 @@ export class ViewAppointmentsComponent implements OnInit {
          });
          console.log('Appointments:', this.appointmentsToday);
           this.calendarOptions = {
-            // Configure the calendar options
+           
             events: appointments.map(appointment => ({
               title: 'Cita '+ appointment.appointmentTime,
               start: new Date(appointment.appointmentDate).toISOString()

@@ -160,3 +160,47 @@
   margin-bottom: -15%;
   color: #495057;
 }
+
+.alert {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.alert-danger {
+  background-color: #F8D7DA;
+  color: #721C24;
+  border: 1px solid #F5C6CB;
+}
+
+.alert-success {
+  background-color: #D4EDDA;
+  color: #155724;
+  border: 1px solid #C3E6CB;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.form-control.invalid {
+  border-color: red;
+}
+
+.error-message {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: red;
+  font-family: 'Poppins', sans-serif;
+  pointer-events: none;
+}
+

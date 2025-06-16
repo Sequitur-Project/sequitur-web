@@ -1,41 +1,87 @@
-<div id="blue-screen">
-</div>
+<div id="blue-screen"></div>
 <div id="white-screen">
-<section id="formulary">
-<img src="assets/images/LOGOTIPO.png" class="logo">
-<span id="login-title"> INICIAR SESIÓN </span>
-<label class="form-label">Correo Electrónico :</label>
-<div class="mb-3">
-  <input type="email" class="form-control" id="FormControlInput1" placeholder="info@provistechnologies.com" [(ngModel)]="email">
-  <img class="icons" src="assets/images/mail.png">
-</div>
+  <section id="formulary">
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+      <img src="assets/images/LOGOTIPO.png" class="logo" />
+      <span id="login-title"> INICIAR SESIÓN </span>
 
-<label class="form-label">Contraseña :</label>
-<div class="mb-3">
-  <input type="password" class="form-control" id="FormControlInput1" placeholder="Ingrese su contraseña" [(ngModel)]="password">
-  <img class="icons" src="assets/images/lock.png">
-</div>
-<div>
-  <label for="role">Rol:</label>
-  <select [(ngModel)]="role" name="role" id="role">
-    <option value="Psicólogo">Psicólogo</option>
-    <option value="Manager">Manager</option>
-  </select>
-</div>
-<span id="password-question"> Olvidaste tu contraseña? </span>
+      <label class="form-label">Correo Electrónico :</label>
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="emailInput"
+          placeholder="info@provistechnologies.com"
+          name="email"
+          [(ngModel)]="email"
+          required
+          #emailInput="ngModel"
+        />
+        <img class="icons" src="assets/images/mail.png" />
+        <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+          Ingresa un correo válido.
+        </div>
+      </div>
 
-<button class="btn btn-primary" type="button" id="login-btn" (click)="login()">Iniciar Sesión</button>
+      <label class="form-label">Contraseña :</label>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="passwordInput"
+          placeholder="Ingrese su contraseña"
+          name="password"
+          [(ngModel)]="password"
+          required
+          minlength="6"
+          #passwordInput="ngModel"
+        />
+        <img class="icons" src="assets/images/lock.png" />
+        <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger">
+          Ingresa una contraseña válida (mínimo 6 caracteres).
+        </div>
+      </div>
 
-<div style="width: 100%; height: 20px; border-bottom: 1.5px solid #C2C2C2; text-align: center; color: #C2C2C2; margin-top: 30px">
-  <span style="font-size: 14.14px;  background-color: #FFFFFF; padding: 30px; margin-top: 5px;">
-    O
-  </span>
-</div>
+      <div>
+        <label for="role">Rol:</label>
+        <select [(ngModel)]="role" name="role" id="role" required #roleSelect="ngModel">
+          <option value="">Selecciona un rol</option>
+          <option value="Psicólogo">Psicólogo</option>
+          <option value="Manager">Manager</option>
+        </select>
+        <div *ngIf="roleSelect.invalid && roleSelect.touched" class="text-danger">
+          Selecciona un rol.
+        </div>
+      </div>
 
-<button class="btn btn-primary" type="button" id="singup-btn">
-  <a href="" id="singup-link" routerLink="/register"> Registrarse </a>
-</button>
-</section>
+      <span id="password-question"> ¿Olvidaste tu contraseña? </span>
+
+      <div *ngIf="errorMessage" class="alert-error">
+        {{ errorMessage }}
+      </div>
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+        id="login-btn"
+        [disabled]="loginForm.invalid"
+      >
+        Iniciar Sesión
+      </button>
+    </form>
+
+    <div
+      style="width: 100%; height: 20px; border-bottom: 1.5px solid #C2C2C2; text-align: center; color: #C2C2C2; margin-top: 30px"
+    >
+      <span style="font-size: 14.14px; background-color: #FFFFFF; padding: 30px; margin-top: 5px">
+        O
+      </span>
+    </div>
+
+    <button class="btn btn-primary" type="button" id="singup-btn">
+      <a href="" id="singup-link" routerLink="/register"> Registrarse </a>
+    </button>
+  </section>
 </div>
 
 <router-outlet></router-outlet>

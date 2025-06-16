@@ -40,7 +40,7 @@
 
 .rounded-grid {
   margin-top:20px;
-  border-radius: 8px; /* adjust the border-radius as desired */
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid #bcd1bd;
   border-bottom:6px solid #16B268;
@@ -65,7 +65,7 @@ table {
   width: 100%;
   background-color: #d1d1d1d0;
   border-collapse: separate;
-  border-spacing: 0 1px; /* add spacing of 10px between rows */
+  border-spacing: 0 1px;
 }
 table th {
   background-color: #16B268 !important;

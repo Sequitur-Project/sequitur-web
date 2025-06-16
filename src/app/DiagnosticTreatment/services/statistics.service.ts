@@ -8,7 +8,7 @@ import { Statistics } from "src/app/DataCollection/models/statistics-model";
   providedIn: 'root'
 })
 export class StatisticsService{
-  private baseUrl = 'https://back-sequitur-production.up.railway.app/api';
+  private baseUrl = 'https://sequitur-backend-2025-production.up.railway.app/api';
 
   constructor(private http: HttpClient) { }
 

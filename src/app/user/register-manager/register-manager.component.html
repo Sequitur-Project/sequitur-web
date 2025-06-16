@@ -1,95 +1,251 @@
-<div id="blue-screen">
-</div>
+<div id="blue-screen"></div>
+
 <div id="white-screen">
-  <section id="formulary">
-    <span id="register-title"> REGÍSTRATE </span>
-    <div class="row">
-      <div class="col">
-        <label class="form-label">Nombres :</label>
-        <input type="text" class="form-control" aria-label="First name" placeholder="Ingresar nombres..." [(ngModel)]="manager.firstName">
+  <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+    <section id="formulary">
+      <span id="register-title"> REGÍSTRATE </span>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !manager.firstName" class="error-message">Requerido</div>
+            <label class="form-label">Nombres :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !manager.firstName}"
+              placeholder="Ingresar nombres..."
+              [(ngModel)]="manager.firstName"
+              name="firstName"
+              required>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !manager.lastName" class="error-message">Requerido</div>
+            <label class="form-label">Apellidos :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !manager.lastName}"
+              placeholder="Ingresar apellidos..."
+              [(ngModel)]="manager.lastName"
+              name="lastName"
+              required>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <label class="form-label">Apellidos :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar apellidos..." [(ngModel)]="manager.lastName">
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !manager.email" class="error-message">Requerido</div>
+            <label class="form-label">Correo :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !manager.email}"
+              placeholder="info@xyz.com"
+              [(ngModel)]="manager.email"
+              name="email"
+              required>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && (!confirmEmail || manager.email !== confirmEmail)" class="error-message">
+              No coinciden
+            </div>
+            <label class="form-label">Confirmar Correo :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && (!confirmEmail || manager.email !== confirmEmail)}"
+              placeholder="info@xyz.com"
+              [(ngModel)]="confirmEmail"
+              name="confirmEmail"
+              required>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label class="form-label">Correo :</label>
-        <input type="text" class="form-control" aria-label="Email" placeholder="info@xyz.com" [(ngModel)]="manager.email" >
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && (!manager.password || manager.password.length < 6)" class="error-message">
+              Mín 6 car.
+            </div>
+            <label class="form-label">Contraseña :</label>
+            <input
+              type="password"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && (!manager.password || manager.password.length < 6)}"
+              placeholder="xxxxxxxxxxxx"
+              [(ngModel)]="manager.password"
+              name="password"
+              required>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && (!confirmPassword || manager.password !== confirmPassword)" class="error-message">
+              No coinciden
+            </div>
+            <label class="form-label">Repetir contraseña :</label>
+            <input
+              type="password"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && (!confirmPassword || manager.password !== confirmPassword)}"
+              placeholder="xxxxxxxxxxxxx"
+              [(ngModel)]="confirmPassword"
+              name="confirmPassword"
+              required>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <label class="form-label">Confirmar Correo :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="info@xyz.com" [(ngModel)]="confirmEmail" >
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label class="form-label">Contraseña :</label>
-        <input type="text" class="form-control" aria-label="Password" placeholder="xxxxxxxxxxxx" [(ngModel)]="manager.password" >
-      </div>
-      <div class="col">
-        <label class="form-label">Repetir contraseña :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="xxxxxxxxxxxxx" [(ngModel)]="confirmPassword" >
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label class="form-label">Teléfono :</label>
-        <input type="text" class="form-control" aria-label="Telephone" placeholder="+51 973429932" [(ngModel)]="manager.telephone">
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !manager.telephone" class="error-message">
+              Requerido
+            </div>
+            <label class="form-label">Teléfono :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !manager.telephone}"
+              placeholder="+51 973429932"
+              [(ngModel)]="manager.telephone"
+              name="telephone"
+              required>
+          </div>
+        </div>
       </div>
 
       <hr>
       <h2>Datos de la Universidad</h2>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <label class="form-label">Nombre : </label>
-        <input type="text" class="form-control" aria-label="First name" placeholder="Ingresar nombre..." [(ngModel)]="university.name">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !university.name" class="error-message">Requerido</div>
+            <label class="form-label">Nombre : </label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !university.name}"
+              placeholder="Ingresar nombre..."
+              [(ngModel)]="university.name"
+              name="universityName"
+              required>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !university.country" class="error-message">Requerido</div>
+            <label class="form-label">País :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !university.country}"
+              placeholder="Ingresar país..."
+              [(ngModel)]="university.country"
+              name="country"
+              required>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <label class="form-label">Pais :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar pais..." [(ngModel)]="university.country">
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !university.city" class="error-message">Requerido</div>
+            <label class="form-label">Ciudad :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !university.city}"
+              placeholder="Ingresar ciudad..."
+              [(ngModel)]="university.city"
+              name="city"
+              required>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !university.address" class="error-message">Requerido</div>
+            <label class="form-label">Dirección :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !university.address}"
+              placeholder="Ingresar dirección..."
+              [(ngModel)]="university.address"
+              name="address"
+              required>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label class="form-label">Ciudad :</label>
-        <input type="text" class="form-control" aria-label="Email" placeholder="Ingresar ciudad..." [(ngModel)]="university.city" >
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !university.zipCode" class="error-message">Requerido</div>
+            <label class="form-label">Código Zip :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !university.zipCode}"
+              placeholder="Ingresar zip..."
+              [(ngModel)]="university.zipCode"
+              name="zip"
+              required>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <div *ngIf="formSubmitted && !university.ruc" class="error-message">Requerido</div>
+            <label class="form-label">RUC :</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{'invalid': formSubmitted && !university.ruc}"
+              placeholder="Ingresar RUC..."
+              [(ngModel)]="university.ruc"
+              name="ruc"
+              required>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <label class="form-label">Direccion :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar direccion..." [(ngModel)]="university.address" >
+
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" type="button" id="account-btn">
+            <a href="" id="singup-link" routerLink=""> Ya tengo cuenta </a>
+          </button>
+        </div>
+
+        <div class="col">
+          <button class="btn btn-primary" type="submit" id="register-btn">
+            Registrarse
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label class="form-label">Codigo Zip :</label>
-        <input type="text" class="form-control" aria-label="Password" placeholder="Ingresar zip..." [(ngModel)]="university.zipCode" >
-      </div>
-      <div class="col">
-        <label class="form-label">RUC :</label>
-        <input type="text" class="form-control" aria-label="Last name" placeholder="Ingresar RUC..." [(ngModel)]="university.ruc" >
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <button class="btn btn-primary" type="button" id="account-btn">
-          <a href="" id="singup-link" routerLink=""> Ya tengo cuenta </a>
+
+      <div class="row mt-3">
+        <button class="btn btn-primary" type="button" id="register-btn" routerLink="/register/2">
+          Ir a Registro como Psicólogo
         </button>
       </div>
-      <div class="col">
-        <button class="btn btn-primary" type="button" id="register-btn" (click)="onSubmit()" routerLink="">Registrarse</button>
-      </div>
-    </div>
-    <div class="row">
-      <button class="btn btn-primary" type="button" id="register-btn" routerLink="/register/2">Ir a Registro como Psicólogo</button>
-    </div>
+    </section>
+  </form>
 
-
-
-  </section>
-
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>

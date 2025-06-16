@@ -8,7 +8,7 @@ import { PaymentMethodRequest } from "../models/PaymentMethod";
   providedIn: 'root'
 })
 export class SubscriptionService {
-  private apiUrl = 'https://back-sequitur-production.up.railway.app/api/subscriptions';
+  private apiUrl = 'https://sequitur-backend-2025-production.up.railway.app/api/subscriptions';
 
 
   constructor(private http: HttpClient) { }
@@ -19,13 +19,13 @@ export class SubscriptionService {
   }
 
   subscribe(managerId: string, subscriptionId: string, paymentMethod: PaymentMethodRequest): Observable<any> {
-    const url = `https://back-sequitur-production.up.railway.app/api/managers/${managerId}/subscribe/${subscriptionId}`;
+    const url = `https://sequitur-backend-2025-production.up.railway.app/api/managers/${managerId}/subscribe/${subscriptionId}`;
     return this.http.post<any>(url, paymentMethod);
   }
 
 
   isSubscribed(managerId: string) {
-    return this.http.get<boolean>(`https://back-sequitur-production.up.railway.app/api/managers/${managerId}/status`);
+    return this.http.get<boolean>(`https://sequitur-backend-2025-production.up.railway.app/api/managers/${managerId}/status`);
   }
 
 

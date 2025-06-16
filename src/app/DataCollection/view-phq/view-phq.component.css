@@ -65,6 +65,42 @@ h2 {
   border-bottom-color: #16B268;
 }
 
+#no-phq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.no-phq-message {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-message {
+  max-width: 600px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.card-message h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-message p {
+  font-size: 16px;
+  color: #666;
+}
+
 @-webkit-keyframes spin {
   to {
     transform: rotate(360deg);

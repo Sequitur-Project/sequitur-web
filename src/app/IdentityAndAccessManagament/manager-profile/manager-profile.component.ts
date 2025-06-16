@@ -62,10 +62,8 @@ export class ManagerProfileComponent {
     if (managerId) {
       this.managerService.updateManager(managerId, updateData)
         .subscribe(response => {
-          // handle the success response
           console.log('Manager updated successfully:', response);
           alert('El perfil ha sido actualizado exitosamente.');
-          // Update the manager object in session storage
         const manager = this.managerService.getLoggedInManager();
         if (manager) {
           manager.firstName = updateData.firstName;
@@ -98,13 +96,11 @@ export class ManagerProfileComponent {
     if (universityId) {
       this.universityService.updateUniversity(universityId, updateData)
         .subscribe(response => {
-          // handle the success response
           console.log('Manager updated successfully:', response);
           alert('Los datos de la universidad han sido actualizados exitosamente.');
-          // Update the manager object in session storage
           const manager = this.managerService.getLoggedInManager();
           if (manager) {
-            manager.university = response; // assuming the response is the updated university object
+            manager.university = response;
             sessionStorage.setItem('loggedInManager', JSON.stringify(manager));
           }
         }, error => {

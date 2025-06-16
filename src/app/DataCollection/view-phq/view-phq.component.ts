@@ -10,6 +10,7 @@ import { ConversationService } from '../services/conversation.service';
 })
 export class ViewPhqComponent {
   isfinishedLoading: boolean = false;
+  phqNotFound: boolean = false;
 
   phqQuestions: string[] = [
     'Poco interés o placer en hacer cosas.',
@@ -32,32 +33,40 @@ export class ViewPhqComponent {
     this.getPhqAnswers();
   }
 
-  getPhqAnswers(): void {
-    const studentId = this.data.student.id;
+ getPhqAnswers(): void {
+  const studentId = this.data.student.id;
 
-    this.conversationService.getConversationByStudentId(studentId)
-      .subscribe(
-        (conversation) => {
-          if (conversation && conversation.studentMessages) {
-            const answers: string[] = conversation.studentMessages
-              .filter((message) => this.isPhqAnswer(message.message))
-              .map((message) => message.message);
+  this.conversationService.getConversationByStudentId(studentId)
+    .subscribe(
+      (conversation) => {
+        if (conversation && conversation.studentMessages) {
+          const answers: string[] = conversation.studentMessages
+            .filter((message) => this.isPhqAnswer(message.message))
+            .map((message) => message.message);
 
-            // Handle the answers as needed
-            this.phqAnswers = answers;
+          this.phqAnswers = answers;
+
+          if (answers.length === 0) {
+            this.phqNotFound = true;
           }
-          setTimeout(() => {
-            this.isfinishedLoading = true;
-          }, 200);
-        },
-        (error) => {
-          console.error('Error retrieving PHQ-9 answers', error);
+        } else {
+          this.phqNotFound = true;
         }
-      );
-  }
+
+        setTimeout(() => {
+          this.isfinishedLoading = true;
+        }, 200);
+      },
+      (error) => {
+        console.error('Error retrieving PHQ-9 answers', error);
+        this.phqNotFound = true;
+        this.isfinishedLoading = true;
+      }
+    );
+}
+
 
   isPhqAnswer(message: string): boolean {
-    // Check if the message is a valid PHQ-9 answer (a number between 0 and 3)
     const answerValue = parseInt(message, 10);
     return !isNaN(answerValue) && answerValue >= 0 && answerValue <= 3;
   }

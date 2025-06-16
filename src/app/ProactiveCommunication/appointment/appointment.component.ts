@@ -32,16 +32,14 @@ export class AppointmentComponent implements OnInit {
 
   onSave(): void {
     const psychologistId = this.psychologistService.getLoggedInPsychologist()?.id;
-    const appointmentData = new Appointment(); // create an instance of the Appointment class
-  appointmentData.psychologistId = psychologistId!; // assign the psychologistId
-  appointmentData.studentId = this.studentId; // assign the studentId
-  // convert the appointmentDate string value to a Date object before assigning it to the appointmentData object
+    const appointmentData = new Appointment();
+  appointmentData.psychologistId = psychologistId!;
+  appointmentData.studentId = this.studentId; 
   appointmentData.appointmentDate = new Date(this.appointmentForm.get('appointmentDate')!.value ?? new Date());
-  appointmentData.appointmentTime = this.appointmentForm.get('appointmentTime')!.value as string; // assign the appointmentTime from the form
-  appointmentData.appointmentLocation = this.appointmentForm.get('appointmentLocation')!.value as string; // assign the appointmentLocation from the form
-  appointmentData.reason = this.appointmentForm.get('reason')!.value as string; // assign the reason from the form
-  appointmentData.accepted = false; // set accepted to false
-    // handle the save action
+  appointmentData.appointmentTime = this.appointmentForm.get('appointmentTime')!.value as string;
+  appointmentData.appointmentLocation = this.appointmentForm.get('appointmentLocation')!.value as string; 
+  appointmentData.reason = this.appointmentForm.get('reason')!.value as string; 
+  appointmentData.accepted = false; 
     this.appointmentService.createAppointment(psychologistId!, this.studentId, appointmentData)
     .subscribe(
       (response) => {
@@ -55,7 +53,6 @@ export class AppointmentComponent implements OnInit {
   }
 
   onCancel(): void {
-    // handle the cancel action
     this.dialogRef.close();
   }
 

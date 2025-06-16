@@ -33,6 +33,6 @@ export class SidebarComponent {
   logout(): void {
     this.psychologistService.logout();
     this.managerService.logout();
-    this.updateLoginState(); // Update login state after logout
+    this.updateLoginState();
   }
 }

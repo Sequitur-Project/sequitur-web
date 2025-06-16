@@ -13,7 +13,7 @@ import { ResponseModel } from '../models/response-model';
 export class QuestionBankService {
   constructor(private http: HttpClient) { }
 
-  private baseUrl = 'https://back-sequitur-production.up.railway.app/api/intents';
+  private baseUrl = 'https://sequitur-backend-2025-production.up.railway.app/api/intents';
 
 
   getQuestionBankData(): Observable<Intent[]> {
