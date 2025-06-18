@@ -216,3 +216,30 @@ mat-card p {
   font-size: 16px;
   color: #666;
 }
+.entry-card {
+  background-color: #f8f9fa;
+  border-left: 4px solid #16B268;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: background 0.3s ease;
+}
+
+.entry-card:hover {
+  background-color: #eefaf2;
+}
+
+.entry-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #333;
+}
+
+.entry-row i {
+  font-size: 18px;
+  color: #16B268;
+}

@@ -1,48 +1,63 @@
 <body>
   <div id="whiter" *ngIf="!isfinishedLoading"></div>
-  <div id="content" *ngIf="!isfinishedLoading">
-    <div id="centeru">
-      <div class="donut"></div>
-    </div>
+<div id="content" *ngIf="!isfinishedLoading">
+  <div id="centeru">
+    <div class="donut"></div>
   </div>
+</div>
 
-  <!-- Cuando ya cargó pero NO HAY bitácora -->
-  <div id="no-binnacle" *ngIf="isfinishedLoading && binnacleNotFound">
-    <div class="no-binnacle-message">
-      <mat-card style="max-width: 600px; margin: 50px auto; padding: 30px; text-align: center; background-color: #f9f9f9; border-radius: 16px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <h2 style="color: #444;">Este estudiante aún no ha registrado ninguna entrada en su bitácora.</h2>
-        <p style="color: #777; font-size: 16px;">Cuando realice su primer ingreso, lo verás reflejado aquí.</p>
-      </mat-card>
-    </div>
+<!-- Cuando ya cargó pero NO HAY bitácora -->
+<div id="no-binnacle" *ngIf="isfinishedLoading && binnacleNotFound">
+  <div class="no-binnacle-message">
+    <mat-card>
+      <h2>Este estudiante aún no ha registrado ninguna entrada en su bitácora.</h2>
+      <p>Cuando realice su primer ingreso, lo verás reflejado aquí.</p>
+    </mat-card>
   </div>
+</div>
 
-  <!-- Cuando ya cargó y SÍ hay bitácora -->
-  <div id="content" *ngIf="isfinishedLoading && !binnacleNotFound">  
-    <div class="calendar">
-      <div class="week" *ngFor="let week of getBinnacleEntriesPerWeek()">
-        <div class="day" *ngFor="let day of week">
-          <mat-grid-list cols="7" rowHeight="100px" gutterSize="10" class="bottomm">
-            <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'#16B268'" class="rounded-grid">
-              <div class="bigday">{{ day.date.substr(-2) }}</div>
-              <div class="bigmonth">{{ day.date.slice(0, -3).substr(-2) }}</div>
-              <div class="bigyear">{{ day.date.slice(0, -6) }}</div>
-            </mat-grid-tile>     
-            <mat-grid-tile [colspan]="6" [rowspan]="2" [style.background]="'transparent'" class="rounded-grid">
-              <div class="info" *ngIf="day.entries.length > 0; else noEntries">
-                <div *ngFor="let entry of day.entries">
-                  <p> <i class="fa fa-user-circle fa-2x" ></i> El emoji que representa su ánimo es: {{ entry.emoji }}</p>
-                  <p> <i class="fa fa-lightbulb-o fa-2x" ></i> El sentimiento que eligió de la lista es: {{ entry.feeling }}</p>
-                  <p> <i class="fa fa-question fa-2x" ></i> La razón que escribió: {{ entry.reason }}</p>
-                  <p> <i class="fa fa-plus fa-2x" ></i> PD: {{ entry.extraText }}</p>
-                </div>          
+<!-- Cuando ya cargó y SÍ hay bitácora -->
+<div id="content" *ngIf="isfinishedLoading && !binnacleNotFound">
+  <div class="calendar">
+    <mat-grid-list cols="7" rowHeight="155px" gutterSize="10" class="bottomm">
+      <ng-container *ngFor="let week of getBinnacleEntriesPerWeek()">
+        <ng-container *ngFor="let day of week">
+          <mat-grid-tile [colspan]="1" [rowspan]="1" class="rounded-grid" [style.background]="'#16B268'">
+            <div class="bigday">{{ day.date.substr(-2) }}</div>
+            <div class="bigmonth">{{ day.date.slice(0, -3).substr(-2) }}</div>
+            <div class="bigyear">{{ day.date.slice(0, -6) }}</div>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="6" [rowspan]="2" class="rounded-grid" [style.background]="'transparent'">
+            <div class="info" *ngIf="day.entries.length > 0; else noEntries">
+              <div *ngFor="let entry of day.entries" class="entry-card">
+                <div class="entry-row">
+                  <i class="fa fa-user-circle fa-lg icon"></i>
+                  <span>Ánimo: <strong>{{ entry.emoji }}</strong></span>
+                </div>
+                <div class="entry-row">
+                  <i class="fa fa-lightbulb-o fa-lg icon"></i>
+                  <span>Sentimiento: <strong>{{ entry.feeling }}</strong></span>
+                </div>
+                <div class="entry-row" *ngIf="entry.reason">
+                  <i class="fa fa-question fa-lg icon"></i>
+                  <span>Razón: <em>"{{ entry.reason }}"</em></span>
+                </div>
+                <div class="entry-row" *ngIf="entry.extraText">
+                  <i class="fa fa-plus fa-lg icon"></i>
+                  <span>PD: <em>{{ entry.extraText }}</em></span>
+                </div>
               </div>
-            </mat-grid-tile>
-          </mat-grid-list>          
-        </div>
-      </div>
-    </div>
+            </div>
+          </mat-grid-tile>
+        </ng-container>
+      </ng-container>
+    </mat-grid-list>
+
     <ng-template #noEntries>
       <h1>NO HAY REGISTRO</h1>
     </ng-template>
   </div>
+</div>
+
 </body>

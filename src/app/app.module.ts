@@ -14,6 +14,7 @@ import { QuestionBankComponent } from './DataCollection/QuestionBank/question-ba
 import { AddRowDialogComponent } from './DataCollection/QuestionBank/add-row-dialog/add-row-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
@@ -96,6 +97,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatExpansionModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
